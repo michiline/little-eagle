@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "test-app",
+            "script": "npm",
+            "args" : "run run-production"
+        }
+    ]
+}
