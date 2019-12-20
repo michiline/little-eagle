@@ -16,5 +16,12 @@ const Root = styled.div`
   display: flex
   padding: ${theme.spacing(1)}
   z-index: 2
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `
 export default Component
