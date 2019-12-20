@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import React from 'react'
-import AppBar from '@material-ui/core/AppBar'
+import { AppBar, Button } from '@material-ui/core'
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
@@ -24,11 +24,14 @@ const Component = () => {
             Little Eagle
           </Typography>
           {SubtitleQuery({ className: classes.subtitle })}
+          <Button className={classes.button}>Login</Button>
         </Toolbar>
       </AppBar>
     </div>
   )
 }
+
+//
 
 export default Component
 
@@ -60,7 +63,12 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(1),
     alignSelf: 'center',
     color: '#52514e',
-    fontFamily: 'Satisfy'
+    fontFamily: 'Satisfy',
+    flexGrow: 1
+  },
+  button: {
+    color: '#1d1d1b',
+    alignSelf: 'center'
   },
 }))
 
@@ -78,4 +86,11 @@ const Logo = styled.img.attrs(props => ({
   }))`
   object-fit: cover
   height: 48px
+`
+
+const Links = styled.div`
+  width: 100%;
+  background-Color: red
+  align-self: center
+  justify-content: flex-end
 `
