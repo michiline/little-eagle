@@ -54,6 +54,13 @@ const Root = styled.div`
   &:active {
     transform: translateY(2px);
   }
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `
 
 const ripple = keyframes`
