@@ -13,7 +13,6 @@ const Home = () => {
 const Root = styled.div`
   width: 100%;
   height: 100vh;
-  background: green
 `
 
 export default Home
