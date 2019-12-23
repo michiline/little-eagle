@@ -52,6 +52,8 @@ const SH2 = styled(SText)`
 
 const SH3 = styled(SText)`
   color: '#1d1d1b';
-  font-family: 'Roboto';
+  font-family: 'Raleway';
   font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 500;
 `
