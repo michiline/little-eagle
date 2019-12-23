@@ -12,6 +12,11 @@ export const H2 = ({ value, ...rest }) =>
     {value}
   </SH2>
 
+export const H3 = ({ value, ...rest }) =>
+  <SH3 {...rest}>
+    {value}
+  </SH3>
+
 const SText = styled.p`
   ${props => props.margin && css`
     margin-left: ${props.margin.left ? props.margin.left : 0};
@@ -19,7 +24,17 @@ const SText = styled.p`
     margin-top: ${props.margin.top ? props.margin.top : 0};
     margin-bottom: ${props.margin.bottom ? props.margin.bottom : 0};
   `}
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   align-self: center;
+  &:focus {
+    outline: none;
+  }
 `
 
 const SH1 = styled(SText)`
@@ -33,4 +48,10 @@ const SH2 = styled(SText)`
   color: '#52514e';
   font-family: 'Satisfy';
   font-size: 26px;
+`
+
+const SH3 = styled(SText)`
+  color: '#1d1d1b';
+  font-family: 'Roboto';
+  font-size: 20px;
 `

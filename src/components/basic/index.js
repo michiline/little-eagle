@@ -1,7 +1,7 @@
 import { Button, IconButton } from './Button'
 import { Icon } from './Icon'
-import { H1, H2 } from './Text'
+import { H1, H2, H3 } from './Text'
 
 export { Button, IconButton }
 export { Icon }
-export { H1, H2 }
+export { H1, H2, H3 }

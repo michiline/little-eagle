@@ -1,7 +1,7 @@
 {
     "apps": [
         {
-            "name": "test-app",
+            "name": "little-eagle",
             "script": "npm",
             "args" : "run run-production"
         }

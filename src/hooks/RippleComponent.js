@@ -40,17 +40,20 @@ const RippleComponent = ({ Component, onClick, round, ...rest }) => {
 export default RippleComponent
 
 const Root = styled.div`
-  position: relative
-  overflow: hidden
-  border-radius: ${props => props.round ? '100%' : '0'}
-  cursor: pointer
+  position: relative;
+  overflow: hidden;
+  border-radius: ${props => props.round ? '100%' : '0'};
+  cursor: pointer;
   &:hover {
-    background-color: ${props => props.hoverColor ? props.hoverColor : theme.color.hover}
+    background-color: ${props => props.hoverColor ? props.hoverColor : theme.color.hover};
   }
   &:focus {
-    outline: none
+    outline: none;
   }
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  &:active {
+    transform: translateY(2px);
+  }
 `
 
 const ripple = keyframes`
