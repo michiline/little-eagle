@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import theme from '../../theme'
 
-const Icon = styled.button.attrs(props => ({
+export const Icon = styled.button.attrs(props => ({
   type: 'button'
   }))`
   border: none;
@@ -24,5 +24,3 @@ const Icon = styled.button.attrs(props => ({
     margin-bottom: ${props.margin.bottom ? props.margin.bottom : 0};
   `}
 `
-
-export { Icon }

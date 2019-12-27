@@ -5,7 +5,7 @@ import { H3, Icon } from '../basic'
 import { LandscapeImg, PeopleImg, CityImg, PortraitImg, EventImg } from '../../images'
 import theme from '../../theme'
 
-const Component = ({ toggled }) => {
+const Component = ({ theme, toggled }) => {
   return (
     <Root toggled={toggled}>
       <RippleComponent Component={Row} url={PeopleImg} value={'People'} />
@@ -27,7 +27,7 @@ const Root = styled.div`
   transition: left ease-in-out 0.3s;
   ${props => props.toggled &&`
     left: 0;
-    box-shadow: ${theme.shadow.dp16};
+    box-shadow: ${props => props.theme.shadow.dp16};
   `}
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@ const SRow = styled.div`
   width: 100%;
   cursor: pointer;
   display: flex;
-  padding: ${theme.spacing(1)}
+  padding: ${props=> props.theme.spacing(1)}
 `
 
 export default Component

@@ -9,7 +9,7 @@ const Component = ({ toggled, setToggled }) => {
   const [width] = useWindowWidth()
   return (
     <Root>
-      <RippleComponent Component={IconButton} onClick={() => setToggled(!toggled)} url={MenuImg} round={true}/>
+      <RippleComponent Component={IconButton} onClick={() => setToggled(!toggled)} url={MenuImg}round={true}/>
       <Icon {...styling.icon}/>
       <H1 value={'LittleEagle'} {...styling.h1}/>
       <H2 value={width > 400 ? 'Photography' : 'Photo'} {...styling.h2}/>

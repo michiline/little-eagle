@@ -9,9 +9,20 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
   body {
     overflow: ${props => props.toggled ? 'hidden': 'auto'};
   }
 }
 `
+
+// html > body > #root {
+//   height: 100%;
+// }

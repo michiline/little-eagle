@@ -12,7 +12,7 @@ const Home = () => {
 }
 
 const Root = styled.div`
-  
+  min-height: 100%;
 `
 
 export default Home
