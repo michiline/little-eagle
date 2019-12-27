@@ -9,7 +9,7 @@ const useImages = function (initialImages = []) {
   const [galleryHeight, setGalleryHeight] = useState(0)
   useEffect(() => {
     const listener = debounce(() => {
-      resize({ windowWidth: window.innerWidth - 32 })
+      resize({ windowWidth: window.innerWidth - 15 })
     }, 25)
     window.addEventListener('resize', listener)
     return () => window.removeEventListener('resize', listener)
@@ -24,7 +24,7 @@ const useImages = function (initialImages = []) {
     const newCounter = counter - 1
     setCounter(newCounter)
     if (newCounter === 0) {
-      resize({ windowWidth: window.innerWidth - 32 })
+      resize({ windowWidth: window.innerWidth - 15 })
     }
   }
   const resize = ({ windowWidth }) => {
@@ -42,8 +42,8 @@ const useImages = function (initialImages = []) {
       if (row.currentRatio > row.minRatio) {
         row.height = windowWidth / row.currentRatio
         row.elements.map(elem => {
-          elem.height = row.height
-          elem.width = row.height * (elem.ratio)
+          elem.height = row.height - 2
+          elem.width = row.height * (elem.ratio) - 2
           return elem
         })
         totalHeight += row.height

@@ -56,13 +56,10 @@ const Root = styled.div`
 `
 
 const GalleryRoot = styled.div`
-  width: calc(100% - 4px);
+  width: 100%;
   height: ${props => `${props.height}px`};
   display: flex;
   flex-wrap: wrap;
-  margin-left: auto;
-  margin-top: 4px;
-  margin-bottom: 4px;
 `
 
 const GalleryImage = ({ updateImage, index, ...rest }) => {
