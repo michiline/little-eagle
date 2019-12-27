@@ -12,3 +12,8 @@ export const PdfImg = `${imgUrl}/misc/pdf.svg`
 export const ContactImg = `${imgUrl}/misc/contact.svg`
 export const GalleryImg = `${imgUrl}/misc/gallery.svg`
 export const AboutImg = `${imgUrl}/misc/about.svg`
+export const HomeImg = `${imgUrl}/misc/home.svg`
+
+const imagePaths = ({ dir, subdir, length }) => [...Array(length)].map((img, index) => `${imgUrl}/${dir}/${subdir}/img${index}.jpg`)
+
+export const homeImages = () => imagePaths({ dir: 'gallery', subdir: 'home', length: 40 })

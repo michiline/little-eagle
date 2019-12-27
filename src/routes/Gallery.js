@@ -3,10 +3,11 @@ import styled from 'styled-components'
 import { Gallery } from '../components'
 import { homeImages } from '../images'
 
-const Component = () => {
+const Component = ({ match }) => {
+  console.log(match)
   return (
     <Root>
-      <Gallery imgUrls={homeImages()}/>
+      hello
     </Root>
   )
 }

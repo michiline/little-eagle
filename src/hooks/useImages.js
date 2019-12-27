@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import debounce from 'lodash.debounce'
 
 const useImages = function (initialImages = []) {
-  const GOAL_HEIGHT = window.innerHeight / 3
+  const GOAL_HEIGHT = window.innerHeight / 2
   const [images, setImages] = useState(initialImages)
   const [counter, setCounter] = useState(initialImages.length)
   const [currentId, setCurrentId] = useState(0)

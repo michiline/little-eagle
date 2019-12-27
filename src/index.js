@@ -6,7 +6,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from './style'
 import theme from './theme'
 import { Header, Drawer, Overlay, Scrollbar } from './components'
-import Home from './routes/Home'
+import { Home, Gallery } from './routes'
 
 const App = () => {
   const [toggled, setToggled] = useState(false)
@@ -17,6 +17,7 @@ const App = () => {
         <Header toggled={toggled} setToggled={setToggled}/>
         <Drawer toggled={toggled} setToggled={setToggled}/>
         <Route exact path='/' component={Home} />
+        <Route exact path='/gallery/:galleryName' component={Gallery} />
       </BrowserRouter>
     </ThemeProvider>
   )
