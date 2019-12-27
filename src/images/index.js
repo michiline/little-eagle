@@ -8,3 +8,7 @@ export const LandscapeImg = `${imgUrl}/misc/landscape.svg`
 export const MenuImg = `${imgUrl}/misc/menu.svg`
 export const PeopleImg = `${imgUrl}/misc/people.svg`
 export const PortraitImg = `${imgUrl}/misc/portrait.svg`
+export const PdfImg = `${imgUrl}/misc/pdf.svg`
+export const ContactImg = `${imgUrl}/misc/contact.svg`
+export const GalleryImg = `${imgUrl}/misc/gallery.svg`
+export const AboutImg = `${imgUrl}/misc/about.svg`

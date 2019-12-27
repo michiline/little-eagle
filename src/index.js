@@ -15,8 +15,7 @@ const App = () => {
       <BrowserRouter>
         <GlobalStyle toggled={toggled} />
         <Header toggled={toggled} setToggled={setToggled}/>
-        <Drawer toggled={toggled} />
-        <Overlay toggled={toggled} setToggled={setToggled}/>
+        <Drawer toggled={toggled} setToggled={setToggled}/>
         <Route exact path='/' component={Home} />
       </BrowserRouter>
     </ThemeProvider>

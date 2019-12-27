@@ -17,6 +17,11 @@ export const H3 = ({ value, ...rest }) =>
     {value}
   </SH3>
 
+export const H4 = ({ value, ...rest }) =>
+  <SH4 {...rest}>
+    {value}
+  </SH4>
+
 const SText = styled.p`
   ${props => props.margin && css`
     margin-left: ${props.margin.left ? props.margin.left : 0};
@@ -53,7 +58,15 @@ const SH2 = styled(SText)`
 const SH3 = styled(SText)`
   color: '#1d1d1b';
   font-family: 'Raleway';
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 1px;
   font-weight: 500;
+`
+
+const SH4 = styled(SText)`
+  color: '#1d1d1b';
+  font-family: 'Raleway';
+  font-size: 16px;
+  letter-spacing: 0.7px;
+  font-weight: 400;
 `
