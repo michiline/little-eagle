@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import debounce from 'lodash.debounce'
 
 const useImages = function (initialImages = []) {
-  console.log(window.navigator.platform)
   const GOAL_HEIGHT = window.innerHeight / 3
   const [images, setImages] = useState(initialImages)
   const [counter, setCounter] = useState(initialImages.length)
@@ -38,28 +37,29 @@ const useImages = function (initialImages = []) {
     let totalHeight = 0
     for (let i = 0; i < images.length; i++) {
       let image = images[i]
-      row.currentRatio += image.ratio
-      row.elements.push(image)
-      if (row.currentRatio > row.minRatio) {
-        row.height = windowWidth / row.currentRatio
-        row.elements.map(elem => {
-          elem.height = row.height
-          elem.width = row.height * (elem.ratio) - 2
-          return elem
-        })
-        const totalWidth = row.elements.reduce((acc, elem) => {
-          acc = acc + elem.width
-          return acc
-        },0)
-        console.log(totalWidth)
-        totalHeight += row.height
-        row = {
-          height: 0,
-          minRatio: windowWidth / GOAL_HEIGHT,
-          currentRatio: 0,
-          elements: []
+      if (image.ratio) {
+        row.currentRatio += image.ratio
+        row.elements.push(image)
+        if (row.currentRatio > row.minRatio) {
+          row.height = windowWidth / row.currentRatio
+          row.elements.map(elem => {
+            elem.height = row.height
+            elem.width = row.height * (elem.ratio) - 2
+            return elem
+          })
+          const totalWidth = row.elements.reduce((acc, elem) => {
+            acc = acc + elem.width
+            return acc
+          },0)
+          totalHeight += row.height
+          row = {
+            height: 0,
+            minRatio: windowWidth / GOAL_HEIGHT,
+            currentRatio: 0,
+            elements: []
+          }
+          setGalleryHeight(totalHeight)
         }
-        setGalleryHeight(totalHeight)
       }
     }
   }
