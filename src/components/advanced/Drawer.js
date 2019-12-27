@@ -17,12 +17,12 @@ const Component = ({ theme, toggled }) => {
 }
 
 const Root = styled.div`
-  width: 60%;
+  width: 250px;
   height: 100vh;
   position: fixed;
   z-index: 3;
   top: 0;
-  left: -75%;
+  left: -250px;
   background: #FFFFFF;
   transition: left ease-in-out 0.3s;
   ${props => props.toggled &&`
@@ -36,7 +36,7 @@ const Root = styled.div`
 const Row = ({ url, value }) => (
   <SRow>
     <Icon url={url} margin={{ left: theme.spacing(1), right: theme.spacing(1) }}/>
-    <H3 value={value} margin={{ left: theme.spacing(2), top: theme.spacing(0.5)}} />
+    <H3 value={value} margin={{ left: theme.spacing(2) }} />
   </SRow>
 )
 
