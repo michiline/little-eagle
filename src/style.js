@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     user-select: none;
   }
   body {
-    overflow: ${props => props.toggled ? 'hidden': 'auto'};
+    overflow: ${props => props.toggled ? 'hidden': 'scroll'};
   }
 }
 `

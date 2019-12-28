@@ -9,7 +9,6 @@ import { to } from '../../utils'
 
 const Component = ({ history, theme, toggled, setToggled }) => {
   const [topic, setTopic] = useState('none')
-  console.log(history)
   return (
     <>
       <Root toggled={toggled}>

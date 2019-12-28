@@ -4,7 +4,6 @@ import { Gallery } from '../components'
 import { homeImages } from '../images'
 
 const Component = ({ match }) => {
-  console.log(match)
   return (
     <Root>
       hello

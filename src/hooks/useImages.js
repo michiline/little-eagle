@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react'
 import debounce from 'lodash.debounce'
 
 const useImages = function (initialImages = []) {
-  const GOAL_HEIGHT = window.innerHeight / 2
+  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth + 1
+  const GOAL_HEIGHT = window.innerHeight / 3
   const [images, setImages] = useState(initialImages)
   const [counter, setCounter] = useState(initialImages.length)
   const [currentId, setCurrentId] = useState(0)
   const [galleryHeight, setGalleryHeight] = useState(0)
   useEffect(() => {
     const listener = debounce(() => {
-      resize({ windowWidth: window.innerWidth - 16 })
+      resize({ windowWidth: window.innerWidth - scrollbarWidth })
     }, 25)
     window.addEventListener('resize', listener)
     return () => window.removeEventListener('resize', listener)
@@ -24,7 +25,7 @@ const useImages = function (initialImages = []) {
     const newCounter = counter - 1
     setCounter(newCounter)
     if (newCounter === 0) {
-      resize({ windowWidth: window.innerWidth - 16 })
+      resize({ windowWidth: window.innerWidth - scrollbarWidth })
     }
   }
   const resize = ({ windowWidth }) => {

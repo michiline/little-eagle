@@ -4,12 +4,10 @@ import { LandscapeImg } from '../../images'
 import { useImages } from '../../hooks'
 
 const Component = ({ imgUrls }) => {
-  const rowHeight = 150
-  const [images, updateImage, galleryHeight] = useImages(imgUrls.map((url, index) => {return { src: url, width: 0, height: 0, naturalWidth: 0, naturalHeight: 0 }}))
-
+  const [images, updateImage] = useImages(initImages(imgUrls))
   return (
-    <Root height={galleryHeight}>
-      <GalleryRoot height={galleryHeight}>
+    <Root>
+      <GalleryRoot>
       {renderImages({ images, updateImage })}
       </GalleryRoot>
     </Root>
@@ -30,8 +28,7 @@ const Root = styled.div`
 `
 
 const GalleryRoot = styled.div`
-  width: 100%;
-  height: ${props => `${props.height}px`};
+  height: min-content;
   display: flex;
   flex-wrap: wrap;
 `
@@ -54,13 +51,6 @@ const SImg = styled.img.attrs(props => ({
   margin: 1px;
 `
 
-export default Component
+const initImages = (imgUrls) => imgUrls.map((url, index) => {return { src: url, width: 0, height: 0, naturalWidth: 0, naturalHeight: 0 }})
 
-// const initRow = ({ WINDOW_WIDTH, MAX_ROW_HEIGHT, handicap  }) => {
-//   return {
-//     height: 0,
-//     minRatio: (WINDOW_WIDTH - handicap) / MAX_ROW_HEIGHT,
-//     currentRatio: 0,
-//     elements: []
-//   }
-// }
+export default Component
