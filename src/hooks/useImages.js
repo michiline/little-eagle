@@ -17,8 +17,9 @@ const useImages = function ({ length }) {
     return () => window.removeEventListener('resize', listener)
   }, [leftoverImages])
   const buildRows = ({ maxWidth, minRatio }) => {
-    const firstImage = images.shift()
-    const rowsRatio = images.reduce((acc, image) => {
+    const imagesCopy = [...images]
+    const firstImage = imagesCopy.shift()
+    const rowsRatio = imagesCopy.reduce((acc, image) => {
       let currentRow = acc[acc.length - 1]
       if (currentRow.ratio < minRatio) {
         currentRow.ratio += image.ratio
