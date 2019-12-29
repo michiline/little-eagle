@@ -1,71 +1,66 @@
 import React, { useState, useEffect } from 'react'
 import debounce from 'lodash.debounce'
 
-const useImages = function (initialImages = []) {
-  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth + 1
-  const GOAL_HEIGHT = window.innerHeight / 3
-  const [images, setImages] = useState(initialImages)
-  const [counter, setCounter] = useState(initialImages.length)
-  const [currentId, setCurrentId] = useState(0)
-  const [galleryHeight, setGalleryHeight] = useState(0)
+const useImages = function ({ length }) {
+  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+  const [images, setImages] = useState([...Array(length)])
+  const [leftoverImages, setLeftoverImages] = useState(length)
+  const [rows, setRows] = useState([])
   useEffect(() => {
+    if (leftoverImages === 0) {
+      buildRows({ maxWidth: window.innerWidth - scrollbarWidth - 1, minRatio: (window.innerWidth - scrollbarWidth - 1) / (window.innerHeight / 3) })
+    }
     const listener = debounce(() => {
-      resize({ windowWidth: window.innerWidth - scrollbarWidth })
-    }, 25)
+      buildRows({ maxWidth: window.innerWidth - scrollbarWidth - 1, minRatio: (window.innerWidth - scrollbarWidth - 1) / (window.innerHeight / 3) })
+    }, 100)
     window.addEventListener('resize', listener)
     return () => window.removeEventListener('resize', listener)
-  })
-  const updateImage = ({ image, index }) => {
+  }, [leftoverImages])
+  const buildRows = ({ maxWidth, minRatio }) => {
+    const firstImage = images.shift()
+    const rowsRatio = images.reduce((acc, image) => {
+      let currentRow = acc[acc.length - 1]
+      if (currentRow.ratio < minRatio) {
+        currentRow.ratio += image.ratio
+        currentRow.images.push(image)
+        currentRow.height = maxWidth / currentRow.ratio
+      } else {
+        currentRow.height = maxWidth / currentRow.ratio
+        acc.push({
+          ratio: image.ratio, images: [image]
+        })
+      }
+      return acc
+    }, [{
+      ratio: firstImage.ratio, images: [firstImage]
+    }])
+    const rowsWidth = rowsRatio.map((currentRow) => {
+      currentRow.images = currentRow.images.map(curr => {
+        curr.width = currentRow.height * curr.ratio - 2
+        return curr
+      })
+      currentRow.width = currentRow.images.reduce((acc, curr) => {
+        acc = acc + curr.width
+        return acc
+      }, 0)
+      return currentRow
+    })
+    if (!rowsWidth[rowsWidth.length - 1].width) {
+      rowsWidth.pop()
+    }
+    setRows(rowsWidth)
+
+  }
+  const setImage = ({ ratio, index, src }) => {
     let newImages = [...images]
     newImages[index] = {
-      ...newImages[index],
-      ...image
+      ratio,
+      src
     }
     setImages(newImages)
-    const newCounter = counter - 1
-    setCounter(newCounter)
-    if (newCounter === 0) {
-      resize({ windowWidth: window.innerWidth - scrollbarWidth })
-    }
+    setLeftoverImages(leftoverImages - 1)
   }
-  const resize = ({ windowWidth }) => {
-    let row = {
-      height: 0,
-      minRatio: windowWidth / GOAL_HEIGHT,
-      currentRatio: 0,
-      elements: []
-    }
-    let totalHeight = 0
-    for (let i = 0; i < images.length; i++) {
-      let image = images[i]
-      if (image.ratio) {
-        row.currentRatio += image.ratio
-        row.elements.push(image)
-        if (row.currentRatio > row.minRatio) {
-          row.height = windowWidth / row.currentRatio
-          row.elements.map(elem => {
-            elem.height = row.height
-            elem.width = row.height * (elem.ratio) - 2
-            return elem
-          })
-          const totalWidth = row.elements.reduce((acc, elem) => {
-            acc = acc + elem.width
-            return acc
-          },0)
-          totalHeight += row.height
-          row = {
-            height: 0,
-            minRatio: windowWidth / GOAL_HEIGHT,
-            currentRatio: 0,
-            elements: []
-          }
-          setGalleryHeight(totalHeight)
-        }
-      }
-    }
-  }
-
-  return [images, updateImage, galleryHeight]
+  return [setImage, rows]
 }
 
 export default useImages

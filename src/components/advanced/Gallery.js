@@ -1,53 +1,69 @@
 import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
-import { LandscapeImg } from '../../images'
 import { useImages } from '../../hooks'
 
 const Component = ({ imgUrls }) => {
-  const [images, updateImage] = useImages(initImages(imgUrls))
+  const [setImage, rows] = useImages({ length: imgUrls.length })
+  console.log(rows)
   return (
     <Root>
-      <GalleryRoot>
-      {renderImages({ images, updateImage })}
-      </GalleryRoot>
+      {setImages({ imgUrls, setImage, show: rows.length === 0 })}
+      {renderRows({ rows })}
     </Root>
   )
 }
 
-const renderImages = ({ images, updateImage }) => images.map((image, index) => {
-  return <GalleryImage
-    {...image}
-    updateImage={updateImage}
-    index={index}
-    key={index}
-    />
-})
+const setImages = ({ imgUrls, setImage, show }) => {
+  return imgUrls.map((imgUrl, index) => {
+    const imgRef = useRef(null)
+    return <SPreImage onLoad={() => setImage({
+        ratio: imgRef.current.naturalWidth / imgRef.current.naturalHeight,
+        index,
+        src: imgUrl
+      })} key={index} ref={imgRef} src={imgUrl} show={show}/>
+  })
+}
+
+const renderRows = ({ rows }) => {
+  return rows.map(row => {
+    return (
+      <Row>
+        {row.images.map(image => {
+          return (
+            <SImage src={image.src} height={row.height} width={image.width}/>
+          )
+        })}
+      </Row>
+    )
+  })
+}
 
 const Root = styled.div`
-  display: flex;
-`
-
-const GalleryRoot = styled.div`
-  height: min-content;
   display: flex;
   flex-wrap: wrap;
 `
 
-const GalleryImage = ({ updateImage, index, ...rest }) => {
-  const imgRef = useRef(null)
-  return <SImg onLoad={() => updateImage({ image: {
-    naturalWidth: imgRef.current.naturalWidth,
-    naturalHeight: imgRef.current.naturalHeight,
-    ratio: imgRef.current.naturalWidth / imgRef.current.naturalHeight
-  }, index })} ref={imgRef} {...rest} />
-}
+const Row = styled.div`
+  display: flex;
+  height: min-content;
+  width: min-content;
+`
 
-const SImg = styled.img.attrs(props => ({
+const SPreImage = styled.img.attrs(props => ({
   src: props.src
   }))`
   background-size: cover;
-  width: ${props => props.width};
+  width: 0;
+  height: 0;
+  display: ${props => props.show ? 'initial': 'none'};
+`
+
+const SImage = styled.img.attrs(props => ({
+  src: props.src
+  }))`
+  background-size: cover;
   height: ${props => props.height};
+  width: ${props => props.width};
   margin: 1px;
 `
 
