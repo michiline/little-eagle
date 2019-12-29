@@ -8,10 +8,10 @@ const useImages = function ({ length }) {
   const [rows, setRows] = useState([])
   useEffect(() => {
     if (leftoverImages === 0) {
-      buildRows({ maxWidth: window.innerWidth - scrollbarWidth - 1, minRatio: (window.innerWidth - scrollbarWidth - 1) / (window.innerHeight / 3) })
+      buildRows({ maxWidth: window.innerWidth - scrollbarWidth - 1, minRatio: (window.innerWidth - scrollbarWidth - 1) / 300 })
     }
     const listener = debounce(() => {
-      buildRows({ maxWidth: window.innerWidth - scrollbarWidth - 1, minRatio: (window.innerWidth - scrollbarWidth - 1) / (window.innerHeight / 3) })
+      buildRows({ maxWidth: window.innerWidth - scrollbarWidth - 1, minRatio: (window.innerWidth - scrollbarWidth - 1) / 300 })
     }, 100)
     window.addEventListener('resize', listener)
     return () => window.removeEventListener('resize', listener)
