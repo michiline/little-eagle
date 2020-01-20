@@ -17,7 +17,7 @@ export const Logo = styled.button.attrs(props => ({
     width: ${props.width};
     height: ${props.height};
   `}
-  width: 60px;
+  width: 59px;
   height: 40px;
   ${props => props.margin && css`
     margin-left: ${props.margin.left ? props.margin.left : 0};
