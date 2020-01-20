@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import { useImages } from '../../hooks'
+import uniqueId from 'lodash.uniqueid'
 
 const Component = ({ imgUrls }) => {
   const [setImage, rows] = useImages({ length: imgUrls.length })
@@ -24,12 +25,12 @@ const setImages = ({ imgUrls, setImage, show }) => {
 }
 
 const renderRows = ({ rows }) => {
-  return rows.map((row, index) => {
+  return rows.map((row) => {
     return (
       <Row>
         {row.images.map(image => {
           return (
-            <SImage src={image.src} height={row.height} width={image.width} key={index}/>
+            <SImage src={image.src} height={row.height} width={image.width} key={uniqueId()}/>
           )
         })}
       </Row>

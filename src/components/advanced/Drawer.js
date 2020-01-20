@@ -17,7 +17,7 @@ const Component = ({ history, theme, toggled, setToggled }) => {
         <RippleComponent Component={Row} url={AboutImg} value={'About Me'} onClick={() => drawerClick({ history, url: '/about', setToggled })}/>
         <RippleComponent Component={Row} url={ContactImg} value={'Contact'} onClick={() => drawerClick({ history, url: '/contact', setToggled })}/>
       </Root>
-      <Overlay toggled={toggled} onClick={e => toggleOff({ setToggled })} />
+      <Overlay toggled={toggled} onClick={e => setToggled(false)} />
     </>
   )
 }
@@ -66,12 +66,8 @@ const SRow = styled.div`
   padding: ${props=> props.theme.spacing(1)};
 `
 
-const toggleOff = ({ setToggled}) => {
-  setToggled(false)
-}
-
 const drawerClick = ({ setToggled, history, url }) => {
-  toggleOff({ setToggled })
+  setToggled(false)
   to({ history, url })
 }
 export default withRouter(Component)
