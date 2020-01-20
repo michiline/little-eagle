@@ -10,8 +10,10 @@ const Component = ({ toggled, setToggled }) => {
   return (
     <Root>
       <RippleComponent Component={IconButton} onClick={() => setToggled(!toggled)} url={MenuImg}round={true}/>
-      <H1 value={'LittleEagle'} {...styling.h1}/>
-      <H2 value={width > 400 ? 'Photography' : 'Photo'} {...styling.h2}/>
+      <HRoot>
+        <H1 value={'LittleEagle'} {...styling.h1}/>
+        <H2 value={width > 380 ? 'Photography' : 'Photo'} {...styling.h2}/>
+      </HRoot>
       <Logo {...styling.icon}/>
     </Root>
   )
@@ -29,18 +31,22 @@ const Root = styled.div`
   -ms-user-select: none;
   user-select: none;
   box-shadow: ${theme.shadow.dp4};
+  justify-content: space-between;
+`
+
+const HRoot = styled.div`
+  display: flex;
 `
 
 const styling = {
   icon: {
     url: LogoImg,
-    margin: { left: theme.spacing(1), right: theme.spacing(1) }
   },
   h1: {
-    margin: { left: theme.spacing(1), right: theme.spacing(0.5) }
+    margin: { right: theme.spacing(0.5) }
   },
   h2: {
-    margin: { left: theme.spacing(0.5), top: theme.spacing(0.8), }
+      margin: { left: theme.spacing(0.5), top: theme.spacing(0.5) }
   }
 }
 

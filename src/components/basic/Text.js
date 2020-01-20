@@ -45,14 +45,14 @@ const SText = styled.p`
 const SH1 = styled(SText)`
   color: '#1d1d1b';
   font-family: 'Lobster';
-  font-size: 26px;
+  font-size: 23px;
 
 `
 
 const SH2 = styled(SText)`
   color: '#52514e';
   font-family: 'Satisfy';
-  font-size: 26px;
+  font-size: 20px;
 `
 
 const SH3 = styled(SText)`

@@ -17,12 +17,14 @@ export const Logo = styled.button.attrs(props => ({
     width: ${props.width};
     height: ${props.height};
   `}
-  width: 70px;
-  height: 48px;
+  width: 60px;
+  height: 40px;
   ${props => props.margin && css`
     margin-left: ${props.margin.left ? props.margin.left : 0};
     margin-right: ${props.margin.right ? props.margin.right : 0};
     margin-top: ${props.margin.top ? props.margin.top : 0};
     margin-bottom: ${props.margin.bottom ? props.margin.bottom : 0};
   `}
+  margin-top: auto;
+  margin-bottom: auto;
 `
