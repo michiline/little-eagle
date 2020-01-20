@@ -14,7 +14,7 @@ const Component = ({ toggled, setToggled }) => {
         <H1 value={'LittleEagle'} {...styling.h1}/>
         <H2 value={width > 380 ? 'Photography' : 'Photo'} {...styling.h2}/>
       </HRoot>
-      <Logo {...styling.icon}/>
+      <Logo {...styling.logo}/>
     </Root>
   )
 }
@@ -39,8 +39,9 @@ const HRoot = styled.div`
 `
 
 const styling = {
-  icon: {
+  logo: {
     url: LogoImg,
+    margin: { right: theme.spacing(1) }
   },
   h1: {
     margin: { right: theme.spacing(0.5), bottom: 'auto', top: 'auto' }
