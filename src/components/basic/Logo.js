@@ -12,11 +12,12 @@ export const Logo = styled.button.attrs(props => ({
   }
   background-image: url(${props => props.url});
   background-size: cover;
+  background-color: transparent;
   ${props => props.width && props.height && css`
     width: ${props.width};
     height: ${props.height};
   `}
-  width: 71px;
+  width: 70px;
   height: 48px;
   ${props => props.margin && css`
     margin-left: ${props.margin.left ? props.margin.left : 0};

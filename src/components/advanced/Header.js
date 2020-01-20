@@ -28,7 +28,7 @@ const Root = styled.div`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  box-shadow: ${theme.shadow.dp4}
+  box-shadow: ${theme.shadow.dp4};
 `
 
 const styling = {
