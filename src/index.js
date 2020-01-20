@@ -17,11 +17,12 @@ const App = () => {
         <Header toggled={toggled} setToggled={setToggled}/>
         <Drawer toggled={toggled} setToggled={setToggled}/>
         <Route exact path='/' component={Home} />
-        <Route exact path='/gallery/:galleryName' component={Gallery} />
       </BrowserRouter>
     </ThemeProvider>
   )
 }
+
+
 
 
 

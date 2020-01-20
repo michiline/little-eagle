@@ -4,7 +4,6 @@ import { useImages } from '../../hooks'
 
 const Component = ({ imgUrls }) => {
   const [setImage, rows] = useImages({ length: imgUrls.length })
-  console.log(rows)
   return (
     <Root>
       {setImages({ imgUrls, setImage, show: rows.length === 0 })}
@@ -25,12 +24,12 @@ const setImages = ({ imgUrls, setImage, show }) => {
 }
 
 const renderRows = ({ rows }) => {
-  return rows.map(row => {
+  return rows.map((row, index) => {
     return (
       <Row>
         {row.images.map(image => {
           return (
-            <SImage src={image.src} height={row.height} width={image.width}/>
+            <SImage src={image.src} height={row.height} width={image.width} key={index}/>
           )
         })}
       </Row>
