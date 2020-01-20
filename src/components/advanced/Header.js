@@ -43,7 +43,7 @@ const styling = {
     url: LogoImg,
   },
   h1: {
-    margin: { right: theme.spacing(0.5) }
+    margin: { right: theme.spacing(0.5), bottom: 'auto', top: 'auto' }
   },
   h2: {
       margin: { left: theme.spacing(0.5), top: theme.spacing(0.5) }
