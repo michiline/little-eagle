@@ -1,6 +1,9 @@
 const imgUrl = `${process.env.PUBLIC_URL}/img`
 
-export const LogoImg = `${imgUrl}/logo2.png`
+export const LogoImg = `${imgUrl}/logo.png`
+export const LogoTextImg = `${imgUrl}/logo-text.png`
+
+export const CoverImg = `${imgUrl}/cover.jpg`
 
 export const CityImg = `${imgUrl}/misc/city.svg`
 export const EventImg = `${imgUrl}/misc/event.svg`

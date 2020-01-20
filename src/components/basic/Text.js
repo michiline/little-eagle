@@ -46,26 +46,27 @@ const SH1 = styled(SText)`
   color: '#1d1d1b';
   font-family: 'Lobster';
   font-size: 23px;
-
+  font-weight: 400;
 `
 
 const SH2 = styled(SText)`
   color: '#52514e';
   font-family: 'Satisfy';
   font-size: 20px;
+  font-weight: 400;
 `
 
 const SH3 = styled(SText)`
   color: '#1d1d1b';
-  font-family: 'Raleway';
+  font-family: 'Satisfy';
   font-size: 18px;
   letter-spacing: 1px;
-  font-weight: 500;
+  font-weight: 400;
 `
 
 const SH4 = styled(SText)`
   color: '#1d1d1b';
-  font-family: 'Raleway';
+  font-family: 'Satisfy';
   font-size: 16px;
   letter-spacing: 0.7px;
   font-weight: 400;

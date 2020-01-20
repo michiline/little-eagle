@@ -8,24 +8,16 @@ import theme from '../../theme'
 import { to } from '../../utils'
 
 const Component = ({ history, theme, toggled, setToggled }) => {
-  const [topic, setTopic] = useState('none')
   return (
     <>
       <Root toggled={toggled}>
-        <RippleComponent Component={Row} url={HomeImg} value={'Home'} onClick={() => drawerClick({ history, url: '/', setToggled, setTopic })}/>
-        <RippleComponent Component={Row} url={GalleryImg} value={'Gallery'} onClick={() => topic === 'none' ? setTopic('gallery') : setTopic('none') } active={topic === 'gallery'}/>
-        {topic === 'gallery' &&
-          <>
-            <RippleComponent Component={RowTopic} url={LandscapeImg} value={'Landscape'} onClick={() => drawerClick({ history, url: '/gallery/landscape', setToggled, setTopic })}/>
-            <RippleComponent Component={RowTopic} url={PeopleImg} value={'People'} onClick={() => drawerClick({ history, url: '/gallery/people', setToggled, setTopic })}/>
-            <RippleComponent Component={RowTopic} url={EventImg} value={'Events'} onClick={() => drawerClick({ history, url: '/gallery/events', setToggled, setTopic })}/>
-          </>
-        }
+        <RippleComponent Component={Row} url={HomeImg} value={'Home'} onClick={() => drawerClick({ history, url: '/', setToggled })}/>
+        <RippleComponent Component={Row} url={GalleryImg} value={'Gallery'} onClick={() => drawerClick({ history, url: '/gallery', setToggled })}/>
         <RippleComponent Component={Row} url={PdfImg} value={'Portfolio'} />
-        <RippleComponent Component={Row} url={AboutImg} value={'About Me'} onClick={() => drawerClick({ history, url: '/about', setToggled, setTopic })}/>
-        <RippleComponent Component={Row} url={ContactImg} value={'Contact'} onClick={() => drawerClick({ history, url: '/contact', setToggled, setTopic })}/>
+        <RippleComponent Component={Row} url={AboutImg} value={'About Me'} onClick={() => drawerClick({ history, url: '/about', setToggled })}/>
+        <RippleComponent Component={Row} url={ContactImg} value={'Contact'} onClick={() => drawerClick({ history, url: '/contact', setToggled })}/>
       </Root>
-      <Overlay toggled={toggled} onClick={e => toggleOff({ setToggled, setTopic })} />
+      <Overlay toggled={toggled} onClick={e => toggleOff({ setToggled })} />
     </>
   )
 }
@@ -45,6 +37,8 @@ const Root = styled.div`
   `}
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 
 const Overlay = styled.div`
@@ -61,15 +55,7 @@ const Overlay = styled.div`
 
 const Row = ({ url, value, active }) => (
   <SRow active={active}>
-    <Icon url={url} margin={{ left: theme.spacing(1), right: theme.spacing(1) }}/>
-    <H3 value={value} margin={{ left: theme.spacing(2) }} />
-  </SRow>
-)
-
-const RowTopic = ({ url, value }) => (
-  <SRow>
-    <Icon url={url} margin={{ left: theme.spacing(3), right: theme.spacing(1) }}/>
-    <H4 value={value} margin={{ left: theme.spacing(1) }} />
+    <H3 value={value} />
   </SRow>
 )
 
@@ -80,13 +66,12 @@ const SRow = styled.div`
   padding: ${props=> props.theme.spacing(1)};
 `
 
-const toggleOff = ({ setToggled, setTopic}) => {
+const toggleOff = ({ setToggled}) => {
   setToggled(false)
-  setTopic('none')
 }
 
-const drawerClick = ({ setToggled, setTopic, history, url }) => {
-  toggleOff({ setToggled, setTopic })
+const drawerClick = ({ setToggled, history, url }) => {
+  toggleOff({ setToggled })
   to({ history, url })
 }
 export default withRouter(Component)
