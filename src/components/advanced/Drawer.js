@@ -60,9 +60,10 @@ const Row = ({ url, value, active }) => (
 )
 
 const SRow = styled.div`
-  width: 100%;
+  width: 250px;
   cursor: pointer;
   display: flex;
+  justify-content: center;
   padding: ${props=> props.theme.spacing(1)};
 `
 

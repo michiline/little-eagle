@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Lobster:400|Satisfy:400');
+  @import url('https://fonts.googleapis.com/css?family=Lobster:400|Satisfy:400|Raleway:500');
   html {
     height: 100%;
   }
@@ -11,7 +11,6 @@ export const GlobalStyle = createGlobalStyle`
   #root {
     height: 100%;
   }
-
   *, *::after, *::before {
     margin: 0;
     padding: 0;
@@ -25,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
     user-select: none;
   }
   body {
-    overflow: ${props => props.hidden ? 'hidden': 'scroll'};
+    overflow: ${props => props.toggled ? 'hidden': 'scroll'};
   }
 }
 `

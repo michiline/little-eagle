@@ -6,6 +6,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import theme from './theme'
 import { App } from './components'
 
+
 const AppContainer = () => {
   return (
     <ThemeProvider theme={theme}>
@@ -15,5 +16,8 @@ const AppContainer = () => {
     </ThemeProvider>
   )
 }
+
+
+
 
 ReactDOM.render(<AppContainer />, document.getElementById('root'))
