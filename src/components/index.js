@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Route } from 'react-router-dom'
+import { Route, useHistory } from 'react-router-dom'
 import { Button, IconButton } from './basic'
 import { Icon } from './basic'
 import { H1, H2, H3 } from './basic'
@@ -9,19 +9,18 @@ import { GlobalStyle } from '../style'
 
 export const App = () => {
   const [toggled, setToggled] = useState(false)
+  const history = useHistory()
+  const [hidden, setHidden] = useState(history.location.pathname === '/')
+  useEffect(() => {
+    history.listen(({ pathname }) => setHidden(pathname === '/'), [])
+  })
   return (
-    <Root>
-      <GlobalStyle toggled={toggled} />
+    <>
+      <GlobalStyle toggled={toggled} hidden={hidden} />
       <Header toggled={toggled} setToggled={setToggled}/>
       <Drawer toggled={toggled} setToggled={setToggled}/>
       <Route exact path='/' component={Home} />
       <Route path='/gallery' component={Gallery} />
-    </Root>
+    </>
   )
 }
-
-const Root = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-`
