@@ -27,7 +27,7 @@ const Root = styled.div`
   height: 100vh;
   position: fixed;
   z-index: 3;
-  top: 0;
+  top: 64px;
   left: -250px;
   background: #FFFFFF;
   transition: left ease-in-out 0.3s;
@@ -45,7 +45,7 @@ const Overlay = styled.div`
   width: 100%;
   height: 100vh;
   position: fixed;
-  top: 0;
+  top: 64px;
   left: 0;
   transition: opacity 0.3s;
   background: #0000007D;
