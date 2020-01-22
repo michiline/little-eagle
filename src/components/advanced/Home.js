@@ -5,7 +5,6 @@ import { CoverImg } from '../../images'
 const Component = () => {
   return (
     <Root>
-      Home
     </Root>
   )
 }

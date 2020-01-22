@@ -7,6 +7,7 @@ const BaseButton = styled.button.attrs(props => ({
   type: 'button'
   }))`
   border: none;
+  outline: none;
   cursor: pointer;
 `
 
