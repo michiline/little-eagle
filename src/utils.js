@@ -8,3 +8,5 @@ export const to = ({ history, url }) => {
   history.push(url)
   // window.scrollTo({ top: 0, behavior: 'smooth' })
 }
+
+export const externalTo = (url) => Object.assign(document.createElement('a'), { target: '_blank', href: url }).click()

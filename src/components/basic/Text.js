@@ -22,6 +22,12 @@ export const H4 = ({ value, ...rest }) =>
     {value}
   </SH4>
 
+export const H5 = ({ value, ...rest }) =>
+  <SH5 {...rest}>
+    {value}
+  </SH5>
+
+
 const SText = styled.p`
   ${props => props.margin && css`
     margin-left: ${props.margin.left ? props.margin.left : 0};
@@ -68,5 +74,13 @@ const SH4 = styled(SText)`
   font-family: 'Raleway';
   font-size: 16px;
   letter-spacing: 0.7px;
+  font-weight: 400;
+`
+
+const SH5 = styled(SText)`
+  color: '#1d1d1b';
+  font-family: 'Raleway';
+  font-size: 12px;
+  letter-spacing: 0.4px;
   font-weight: 400;
 `

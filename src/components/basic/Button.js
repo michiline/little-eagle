@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { RippleComponent } from '../../hooks'
 import theme from '../../theme'
 

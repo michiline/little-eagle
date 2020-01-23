@@ -3,7 +3,7 @@ import styled, { css, keyframes } from 'styled-components'
 import { sleep } from '../utils'
 import theme from '../theme'
 
-const RippleComponent = ({ Component, onClick, round, ...rest }) => {
+const RippleComponent = ({ Component, onClick, round, rippleColor, ...rest }) => {
   const [ripples, setRipples] = useState([])
   const rootRef = useRef(null)
   useEffect(() => {
@@ -31,7 +31,7 @@ const RippleComponent = ({ Component, onClick, round, ...rest }) => {
   return (
     <Root ref={rootRef} round={round}>
       <Component {...rest} />
-      {ripples.length > 0 && ripples.map((ripple, index) => <Ripple {...ripple} key={index}/>)}
+      {ripples.length > 0 && ripples.map((ripple, index) => <Ripple {...ripple} rippleColor={rippleColor} key={index}/>)}
     </Root>
 
   )

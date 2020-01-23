@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     height: 100%;
+    overflow: ${props => props.toggled || props.hidden ? 'hidden': 'scroll'};
   }
   #root {
     height: 100%;
@@ -22,9 +23,6 @@ export const GlobalStyle = createGlobalStyle`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
-  body {
-    overflow: ${props => props.toggled || props.hidden ? 'hidden': 'scroll'};
   }
 }
 `

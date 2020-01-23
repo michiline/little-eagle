@@ -17,6 +17,13 @@ export const GalleryImg = `${imgUrl}/misc/gallery.svg`
 export const AboutImg = `${imgUrl}/misc/about.svg`
 export const HomeImg = `${imgUrl}/misc/home.svg`
 
+export const InstagramImg = `${imgUrl}/misc/instagram.svg`
+export const FacebookImg = `${imgUrl}/misc/facebook.svg`
+
+export const InstagramImgLarge = `${imgUrl}/misc/instagram-large.png`
+export const FacebookImgLarge = `${imgUrl}/misc/facebook-large.png`
+
+
 const imagePaths = ({ dir, subdir, length }) => [...Array(length)].map((img, index) => `${imgUrl}/${dir}/${subdir}/img${index}.jpg`)
 
 export const homeImages = () => imagePaths({ dir: 'gallery', subdir: 'home', length: 60 })
