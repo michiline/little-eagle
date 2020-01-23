@@ -11,6 +11,7 @@ export const App = () => {
   const [toggled, setToggled] = useState(false)
   const history = useHistory()
   const [hidden, setHidden] = useState(history.location.pathname === '/')
+  console.log(history)
   useEffect(() => {
     history.listen(({ pathname }) => setHidden(pathname === '/'), [])
   })
@@ -21,7 +22,7 @@ export const App = () => {
       <Drawer toggled={toggled} setToggled={setToggled}/>
       <Route exact path='/' component={Home} />
       <Route path='/gallery' component={Gallery} />
-      <Footer />
+      {history.location.pathname !== '/' && <Footer />}
     </>
   )
 }
