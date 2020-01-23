@@ -9,6 +9,7 @@ const BaseButton = styled.button.attrs(props => ({
   border: none;
   outline: none;
   cursor: pointer;
+  vertical-align: bottom;
 `
 
 export const IconButton = styled(BaseButton)`

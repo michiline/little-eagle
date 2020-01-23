@@ -81,5 +81,5 @@ const Ripple = styled.span`
   left: ${props => props.x}px;
   width: ${props => props.width}px;
   height: ${props => props.height}px;
-  cursor: pointer
+  cursor: pointer;
 `
