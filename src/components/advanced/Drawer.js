@@ -48,7 +48,7 @@ const Overlay = styled.div`
   top: 64px;
   left: 0;
   transition: opacity 0.3s;
-  background: #0000007D;
+  background: #000000A0;
   opacity: ${props => props.toggled ? 1 : 0 };
   z-index: ${props => props.toggled ? 1 : -1 };
 `

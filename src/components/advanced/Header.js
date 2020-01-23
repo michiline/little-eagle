@@ -1,14 +1,15 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { IconButton, Icon, Logo, H1, H2 } from '../basic'
 import { MenuImg, LogoImg, LandscapeImg } from '../../images'
-import { RippleComponent, useWindowWidth } from '../../hooks'
+import { RippleComponent, useWindowWidth, useScrolledDirection } from '../../hooks'
 import theme from '../../theme'
 
 const Component = ({ toggled, setToggled }) => {
   const [width] = useWindowWidth()
+  const [scrollY, scrolled] = useScrolledDirection({ boundary: 0 })
   return (
-    <Root>
+    <Root scrolled={scrolled} toggled={toggled}>
       <RippleComponent Component={IconButton} onClick={() => setToggled(!toggled)} url={MenuImg}round={true}/>
       <HRoot>
         <H1 value={'LittleEagle'} {...styling.h1}/>
@@ -32,6 +33,17 @@ const Root = styled.div`
   user-select: none;
   box-shadow: ${theme.shadow.dp4};
   justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  background-color: #FFFFFFD2;
+  transition: all .2s cubic-bezier(.4,0,.2,.1);
+  top: 0;
+  ${props => props.scrolled && css`
+    top: -64px;
+  `}
+  ${props => props.toggled && css`
+    background-color: #FFFFFF;
+  `}
 `
 
 const HRoot = styled.div`
