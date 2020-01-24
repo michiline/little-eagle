@@ -1,6 +1,4 @@
-import React from 'react'
 import styled, { css } from 'styled-components'
-import theme from '../../theme'
 
 export const Logo = styled.button.attrs(props => ({
   type: 'button'

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import _ from 'lodash'
 
 const useScrolledDirection = function ({ boundary }) {

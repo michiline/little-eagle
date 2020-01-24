@@ -7,7 +7,8 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     height: 100%;
-    overflow: ${props => props.toggled || props.hidden ? 'hidden': 'scroll'};
+    overflow-y: ${props => props.toggled || props.hidden ? 'hidden': 'scroll'};
+    overflow-x: hidden
   }
   #root {
     height: 100%;

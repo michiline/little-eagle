@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { useImages } from '../../hooks'
 
@@ -65,7 +65,5 @@ const SImage = styled.img.attrs(props => ({
   width: ${props => props.width};
   margin: 1px;
 `
-
-const initImages = (imgUrls) => imgUrls.map((url, index) => {return { src: url, width: 0, height: 0, naturalWidth: 0, naturalHeight: 0 }})
 
 export default Component

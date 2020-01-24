@@ -1,14 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useHistory } from 'react-router-dom'
 import { RippleComponent } from '../../hooks'
 import { CoverImg } from '../../images'
 import { FacebookImg, InstagramImg } from '../../images'
 import { IconButton } from '../basic'
 import theme from '../../theme'
 import { externalTo } from '../../utils'
+
 const Component = () => {
-  const history = useHistory()
   return (
     <Root>
       <IconContainer>

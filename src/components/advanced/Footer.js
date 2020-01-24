@@ -1,5 +1,5 @@
-import React, { useRef } from 'react'
-import styled, { css } from 'styled-components'
+import React from 'react'
+import styled from 'styled-components'
 import { RippleComponent } from '../../hooks'
 import { FacebookImg, InstagramImg } from '../../images'
 import { IconButton, H5 } from '../basic'

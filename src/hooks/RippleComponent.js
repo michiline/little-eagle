@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import styled, { css, keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { sleep } from '../utils'
 import theme from '../theme'
 

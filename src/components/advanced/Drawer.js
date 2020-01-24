@@ -1,9 +1,8 @@
-import React, { useState} from 'react'
-import styled, { css } from 'styled-components'
+import React from 'react'
+import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
 import { RippleComponent } from '../../hooks'
-import { H3, H4, Icon } from '../basic'
-import { GalleryImg, PdfImg, ContactImg, LandscapeImg, PeopleImg, EventImg, PortraitImg, AboutImg, HomeImg } from '../../images'
+import { H3 } from '../basic'
 import theme from '../../theme'
 import { to } from '../../utils'
 
@@ -11,11 +10,11 @@ const Component = ({ history, theme, toggled, setToggled }) => {
   return (
     <>
       <Root toggled={toggled}>
-        <RippleComponent Component={Row} url={HomeImg} value={'Home'} onClick={() => drawerClick({ history, url: '/', setToggled })}/>
-        <RippleComponent Component={Row} url={GalleryImg} value={'Gallery'} onClick={() => drawerClick({ history, url: '/gallery', setToggled })}/>
-        <RippleComponent Component={Row} url={PdfImg} value={'Portfolio'} />
-        <RippleComponent Component={Row} url={AboutImg} value={'About Me'} onClick={() => drawerClick({ history, url: '/about', setToggled })}/>
-        <RippleComponent Component={Row} url={ContactImg} value={'Contact'} onClick={() => drawerClick({ history, url: '/contact', setToggled })}/>
+        <RippleComponent Component={Row} value={'Home'} onClick={() => drawerClick({ history, url: '/', setToggled })}/>
+        <RippleComponent Component={Row} value={'Gallery'} onClick={() => drawerClick({ history, url: '/gallery', setToggled })}/>
+        <RippleComponent Component={Row} value={'Portfolio'} />
+        <RippleComponent Component={Row} value={'About Me'} onClick={() => drawerClick({ history, url: '/about', setToggled })}/>
+        <RippleComponent Component={Row} value={'Contact'} onClick={() => drawerClick({ history, url: '/contact', setToggled })}/>
       </Root>
       <Overlay toggled={toggled} onClick={e => setToggled(false)} />
     </>
