@@ -51,7 +51,6 @@ const Root = styled.div`
 `
 
 const Header = styled(H1)`
-  font-family: 'Raleway';
   margin: ${theme.spacing(1)};
   padding: ${theme.spacing(1)};
 `
@@ -112,8 +111,8 @@ const OverlayRow = styled.p`
   letter-spacing: 0;
   line-height: 1.6;
   padding: ${theme.spacing(1)};
-  font-family: 'Raleway';
-  font-weight: 700;
+  font-family: 'Satisfy';
+  font-weight: 400;
   color: white;
   z-index: 1;
   user-select: none;
