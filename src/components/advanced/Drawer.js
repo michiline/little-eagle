@@ -49,7 +49,7 @@ const Overlay = styled.div`
   transition: opacity 0.3s;
   background: #000000A0;
   opacity: ${props => props.toggled ? 1 : 0 };
-  z-index: ${props => props.toggled ? 1 : -1 };
+  z-index: ${props => props.toggled ? 2 : -1 };
 `
 
 const Row = ({ url, value, active }) => (
