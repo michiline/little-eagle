@@ -8,10 +8,10 @@ const useImages = function ({ length }) {
   const [rows, setRows] = useState([])
   useEffect(() => {
     if (leftoverImages === 0) {
-      buildRows({ maxWidth: window.innerWidth - scrollbarWidth - 1, minRatio: (window.innerWidth - scrollbarWidth - 1) / 300 })
+      buildRows({ maxWidth: window.innerWidth - scrollbarWidth - 1, minRatio: (window.innerWidth - scrollbarWidth - 1) / 250 })
     }
     const listener = debounce(() => {
-      buildRows({ maxWidth: window.innerWidth - scrollbarWidth - 1, minRatio: (window.innerWidth - scrollbarWidth - 1) / 300 })
+      buildRows({ maxWidth: window.innerWidth - scrollbarWidth - 1, minRatio: (window.innerWidth - scrollbarWidth - 1) / 250 })
     }, 100)
     window.addEventListener('resize', listener)
     return () => window.removeEventListener('resize', listener)
@@ -28,13 +28,14 @@ const useImages = function ({ length }) {
       } else {
         currentRow.height = maxWidth / currentRow.ratio
         acc.push({
-          ratio: image.ratio, images: [image]
+          ratio: image.ratio, images: [image], width: maxWidth, height: maxWidth / image.ratio
         })
       }
       return acc
     }, [{
       ratio: firstImage.ratio, images: [firstImage]
     }])
+    console.log(rowsRatio)
     const rowsWidth = rowsRatio.map((currentRow) => {
       currentRow.images = currentRow.images.map(curr => {
         curr.width = currentRow.height * curr.ratio - 2
@@ -61,7 +62,7 @@ const useImages = function ({ length }) {
     setImages(newImages)
     setLeftoverImages(leftoverImages - 1)
   }
-  return [setImage, rows]
+  return [setImage, rows, images]
 }
 
 export default useImages

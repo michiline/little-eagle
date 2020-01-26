@@ -23,7 +23,7 @@ const Component = ({ history, theme, toggled, setToggled }) => {
 
 const Root = styled.div`
   width: 250px;
-  height: calc(100vh - 68px);
+  height: calc(100vh - 64px);
   position: fixed;
   z-index: 3;
   top: 64px;

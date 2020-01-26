@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useImages } from '../../hooks'
 
 const Component = ({ imgUrls }) => {
-  const [setImage, rows] = useImages({ length: imgUrls.length })
+  const [setImage, rows, images] = useImages({ length: imgUrls.length })
   return (
     <Root>
       {setImages({ imgUrls, setImage, show: rows.length === 0 })}
