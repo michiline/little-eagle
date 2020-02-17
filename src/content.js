@@ -1,7 +1,7 @@
 const content = {
   home: [
     {
-      src: `${process.env.PUBLIC_URL}/img/gallery/people/img0.jpg`,
+      src: `${process.env.PUBLIC_URL}/img/gallery/people/img1.jpg`,
       title: 'People',
       url: '/gallery/people'
     },

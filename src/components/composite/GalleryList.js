@@ -45,25 +45,44 @@ const Grid = styled.div`
 `
 
 const ImgContainer = styled.div`
-  width: calc(100vw - ${theme.spacing(4)});
-  height: calc(100vw - ${theme.spacing(4)});
+  width: 100vw;
+  height: 54vw;
   position: relative;
   border: ${theme.shadow.dp1};
   cursor: pointer;
   &:hover {
     opacity: 0.9;
   }
-  margin-left: ${theme.spacing(2)};
-  margin-right: ${theme.spacing(2)};
-  margin-top: ${theme.spacing(1)};
-  margin-bottom: ${theme.spacing(1)};
+  margin-top: 1px;
+  margin-bottom: 1px;
   ${props => props.first && css`
-    margin-top: ${theme.spacing(2)};
+    margin-top: 2px;
   `}
   ${props => props.last && css`
-    margin-bottom: ${theme.spacing(2)};
+    margin-bottom: 2px;
   `}
 `
+
+// const ImgContainer = styled.div`
+//   width: calc(100vw - ${theme.spacing(4)});
+//   height: calc(100vw - ${theme.spacing(4)});
+//   position: relative;
+//   border: ${theme.shadow.dp1};
+//   cursor: pointer;
+//   &:hover {
+//     opacity: 0.9;
+//   }
+//   margin-left: ${theme.spacing(2)};
+//   margin-right: ${theme.spacing(2)};
+//   margin-top: ${theme.spacing(1)};
+//   margin-bottom: ${theme.spacing(1)};
+//   ${props => props.first && css`
+//     margin-top: ${theme.spacing(2)};
+//   `}
+//   ${props => props.last && css`
+//     margin-bottom: ${theme.spacing(2)};
+//   `}
+// `
 
 const Img = styled.img.attrs(props => ({
   src: props.src
