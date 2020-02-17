@@ -27,10 +27,10 @@ export const FacebookImgLarge = `${imgUrl}/misc/facebook-large.png`
 const imagePaths = ({ dir, subdir, length }) => [...Array(length)].map((img, index) => `${imgUrl}/${dir}/${subdir}/img${index}.jpg`)
 
 export const galleryImages = {
-  'people': imagePaths({ dir: 'gallery', subdir: 'home', length: 20 }),
-  'landscape': imagePaths({ dir: 'gallery', subdir: 'home', length: 14 }),
-  'events': imagePaths({ dir: 'gallery', subdir: 'home', length: 32 }),
-  'travels': imagePaths({ dir: 'gallery', subdir: 'home', length: 18 }),
+  'people': imagePaths({ dir: 'gallery', subdir: 'people', length: 34 }),
+  'travel-landscape': imagePaths({ dir: 'gallery', subdir: 'travel-landscape', length: 22 }),
+  'chill-vibez-battles': imagePaths({ dir: 'gallery', subdir: 'projects/chill-vibez-battles', length: 101 }),
+  'supeus-case-study': imagePaths({ dir: 'gallery', subdir: 'projects/supeus-case-study', length: 26 }),
 }
 
 export const homeImages = () => imagePaths({ dir: 'gallery', subdir: 'home', length: 60 })

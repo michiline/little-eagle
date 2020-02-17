@@ -35,7 +35,6 @@ const useImages = function ({ length }) {
     }, [{
       ratio: firstImage.ratio, images: [firstImage]
     }])
-    console.log(rowsRatio)
     const rowsWidth = rowsRatio.map((currentRow) => {
       currentRow.images = currentRow.images.map(curr => {
         curr.width = currentRow.height * curr.ratio - 2
