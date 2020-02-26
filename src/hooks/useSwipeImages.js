@@ -6,10 +6,17 @@ const useImages = function ({ length }) {
   const [leftoverImages, setLeftoverImages] = useState(length)
   const [sizes, setSizes] = useState([])
   useEffect(() => {
+    const resize = debounce(() => {
+      if (leftoverImages === 0) {
+        setSizes(getSizes(extractRatios(images)))
+      }
+      //
+    }, 100)
     if (leftoverImages === 0) {
       setLeftoverImages(leftoverImages - 1)
       setSizes(getSizes(extractRatios(images)))
     }
+    window.addEventListener('resize', resize)
   })
   const setImage = ({ ratio, index, src }) => {
     let newImages = [...images]

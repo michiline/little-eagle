@@ -1,17 +1,21 @@
 import React, { useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { useSwipeImages, useMouseTouchSwipe } from '../../hooks'
+import { arrow, X } from '../../images'
 
-const Component = ({ imgUrls, activeImgId }) => {
+const Component = ({ imgUrls, setActiveImgId, activeImgId }) => {
   const [setImage, images, sizes] = useSwipeImages({ length: imgUrls.length })
-  useMouseTouchSwipe({ activeImgId, length: imgUrls.length })
+  const [previous, next] = useMouseTouchSwipe({ activeImgId, length: imgUrls.length })
   return (
     <>
     {setImages({ imgUrls, setImage })}
     <Root show={activeImgId !== -1}>
+      <Previous onClick={() => previous()}/>
       <Container>
         {renderImages({ images, sizes })}
       </Container>
+      <Next onClick={() => next()}/>
+      <Close onClick={() => setActiveImgId(-1)} />
     </Root>
     </>
   )
@@ -81,5 +85,67 @@ const SPreImage = styled.img.attrs(props => ({
   display: ${props => props.show ? 'initial': 'none'};
 `
 
+const Next = styled.div`
+  position: absolute;
+  bottom: calc(50% - 25px);
+  right: 2%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  z-index: 8;
+  opacity: 0.6;
+	background-image: url(${arrow.next});
+  transition: opacity 0.2s ease-in-out;
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    transform: translateY(2px);
+  }
+`
+
+const Previous = styled.div`
+  position: absolute;
+  bottom: calc(50% - 25px);
+  left: 2%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  z-index: 8;
+  opacity: 0.6;
+	background-image: url(${arrow.previous});
+  transition: opacity 0.2s ease-in-out;
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    transform: translateY(2px);
+  }
+`
+
+const Close = styled.div`
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  z-index: 8;
+  background-image: url(${X});
+  opacity: 0.6;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    transform: translateY(2px);
+  }
+`
 
 export default Component

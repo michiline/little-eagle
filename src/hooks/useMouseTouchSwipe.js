@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 
 const useMouseListeners = function ({ activeImgId, length}) {
+  const [w, setW] = useState(window.innerWidth)
   const locked = useRef(false)
   const i = useRef(activeImgId)
   const n = useRef(length)
@@ -16,11 +17,28 @@ const useMouseListeners = function ({ activeImgId, length}) {
   const cf = useRef(0)
 
   const N = length
-  const w = window.innerWidth
   const NF = 30
   const TFN = {
   	'ease-in-out': (k) => .5*(Math.sin((k - .5)*Math.PI) + 1)
   }
+
+  const next = () => {
+    if (i.current + 1 < N) {
+      anf.current = 24
+      fin.current = fin.current + 1
+      i.current = i.current + 1
+      ani()
+    }
+  }
+
+  const previous = () => {
+      if (i.current >= 1) {
+        anf.current = 24
+        fin.current = fin.current - 1
+        i.current = i.current - 1
+        ani()
+      }
+    }
 
   const unify = (e) => e.changedTouches ? e.changedTouches[0] : e
 
@@ -82,6 +100,10 @@ const useMouseListeners = function ({ activeImgId, length}) {
     }
   }
 
+  const resize = () => {
+    setW(document.body.clientWidth)
+  }
+
   useEffect(() => {
     C.current = document.querySelector('#container')
     C.current.style.setProperty('--n', N)
@@ -92,12 +114,18 @@ const useMouseListeners = function ({ activeImgId, length}) {
     window.addEventListener('touchmove', drag)
     window.addEventListener('mouseup', move)
     window.addEventListener('touchend', move)
+    window.addEventListener('resize', resize)
     return () => {
       window.removeEventListener('mousedown', lock)
       window.removeEventListener('mousemove', drag)
       window.removeEventListener('mouseup', move)
+      window.removeEventListener('touchstart', lock)
+      window.removeEventListener('touchmove', drag)
+      window.removeEventListener('touchend', move)
+      window.removeEventListener('resize', resize)
     }
   })
+  return [previous, next]
 }
 
 export default useMouseListeners

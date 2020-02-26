@@ -28,6 +28,8 @@ export const arrow = {
   next: `${imgUrl}/misc/next.svg`
 }
 
+export const X = `${imgUrl}/misc/x.svg`
+
 
 const imagePaths = ({ dir, subdir, length }) => [...Array(length)].map((img, index) => `${imgUrl}/${dir}/${subdir}/img${index}.jpg`)
 

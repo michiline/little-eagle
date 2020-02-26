@@ -10,7 +10,7 @@ const Component = ({ match, history }) => {
   return (
     <Root>
       <JustifiedGallery imgUrls={galleryImages[match.params.galleryName]} onImgClick={id => setActiveImgId(id)}/>
-      { activeImgId !== -1 && <SwipeGallery imgUrls={galleryImages[match.params.galleryName]} activeImgId={activeImgId}/>}
+      { activeImgId !== -1 && <SwipeGallery imgUrls={galleryImages[match.params.galleryName]} setActiveImgId={setActiveImgId} activeImgId={activeImgId}/>}
     </Root>
   )
 }
