@@ -10,7 +10,7 @@ import { externalTo } from '../../utils'
 const Component = () => {
   return (
     <Root>
-      <Header>See the world through my lens.</Header>
+      <Header>The world through my lens.</Header>
       <IconContainer>
         <RippleComponent Component={IconButton} url={FacebookImg} rippleColor={'#FFFFFF7C'} round={true} onClick={() => externalTo('https://www.facebook.com/littleeaglephoto')}/>
         <RippleComponent Component={IconButton}  url={InstagramImg} rippleColor={'#FFFFFF7C'} round={true} onClick={() => externalTo('https://www.instagram.com/littleeaglephoto')}/>

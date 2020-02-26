@@ -8,7 +8,7 @@ export const App = () => {
   const history = useHistory()
   const [hidden, setHidden] = useState(history.location.pathname === '/')
   useEffect(() => {
-    history.listen(({ pathname }) => setHidden(pathname === '/' || pathname === '/about'), [])
+    history.listen(({ pathname }) => setHidden(pathname === '/'), [])
   })
   return (
     <>

@@ -28,7 +28,6 @@ const Component = () => {
       <Text last={true}>
         If you have an idea, wish or vision, feel free to contact me.
       </Text>
-
     </Root>
   )
 }

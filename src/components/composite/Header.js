@@ -34,6 +34,7 @@ const Root = styled.div`
   box-shadow: ${theme.shadow.dp4};
   justify-content: space-between;
   width: 100%;
+  min-width: 100%;
   background-color: #FFFFFF;
   transition: all .2s cubic-bezier(.4,0,.2,.1);
   top: 0;
