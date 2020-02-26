@@ -10,6 +10,7 @@ import { externalTo } from '../../utils'
 const Component = () => {
   return (
     <Root>
+      <Header>See the world through my lens.</Header>
       <IconContainer>
         <RippleComponent Component={IconButton} url={FacebookImg} rippleColor={'#FFFFFF7C'} round={true} onClick={() => externalTo('https://www.facebook.com/littleeaglephoto')}/>
         <RippleComponent Component={IconButton}  url={InstagramImg} rippleColor={'#FFFFFF7C'} round={true} onClick={() => externalTo('https://www.instagram.com/littleeaglephoto')}/>
@@ -19,13 +20,14 @@ const Component = () => {
 }
 
 const Root = styled.div`
-  background-image: url(${CoverImg});
+  background: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url(${CoverImg});;
   background-size: cover;
   background-position: right;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
 `
 
 const IconContainer = styled.div`
@@ -34,6 +36,19 @@ const IconContainer = styled.div`
   justify-content: center;
   padding: ${theme.spacing(0.5)};
   margin-right: ${theme.spacing(1)};
+  margin-bottom: 64px;
+`
+
+const Header = styled.p`
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 1.6;
+  padding: ${theme.spacing(1)};
+  font-family: 'Satisfy';
+  font-weight: 400;
+  color: white;
+  z-index: 1;
+  user-select: none;
 `
 
 export default Component

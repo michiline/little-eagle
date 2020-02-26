@@ -37,24 +37,23 @@ const Header = styled(H1)`
 
 const Grid = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   height: min-content;
+  flex-wrap: wrap;
 `
 
 const ImgContainer = styled.div`
-  width: 100vw;
-  height: 54vw;
+  width: 300px;
+  height: 300px;
   position: relative;
   border: ${theme.shadow.dp1};
   cursor: pointer;
   &:hover {
     opacity: 0.9;
   }
-  margin-top: 1px;
-  margin-bottom: 1px;
   ${props => props.first && css`
     margin-top: 2px;
   `}

@@ -35,7 +35,7 @@ const useImages = function ({ length }) {
     }, [{
       ratio: firstImage.ratio, images: [firstImage]
     }])
-    if (rowsRatio[rowsRatio.length - 1].images.length === 1) {
+    if (rowsRatio[rowsRatio.length - 1].ratio < minRatio) {
       rowsRatio.pop()
     }
     const rowsWidth = rowsRatio.map((currentRow) => {
