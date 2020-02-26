@@ -5,5 +5,6 @@ import Gallery from './Gallery'
 import GalleryList from './GalleryList'
 import Home from './Home'
 import Footer from './Footer'
+import SwipeGallery from './SwipeGallery'
 
-export { Header, Drawer, JustifiedGallery, Gallery, GalleryList, Home, Footer }
+export { Header, Drawer, JustifiedGallery, Gallery, GalleryList, Home, Footer, SwipeGallery }

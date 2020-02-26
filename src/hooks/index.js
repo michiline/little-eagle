@@ -1,6 +1,8 @@
 import RippleComponent from './RippleComponent'
 import useWindowWidth from './useWindowWidth'
-import useImages from './useImages'
+import useJustifiedImages from './useJustifiedImages'
 import useScrolledDirection from './useScrolledDirection'
+import useSwipeImages from './useSwipeImages'
+import useMouseTouchSwipe from './useMouseTouchSwipe'
 
-export { RippleComponent, useWindowWidth, useImages, useScrolledDirection }
+export { RippleComponent, useWindowWidth, useJustifiedImages, useScrolledDirection, useSwipeImages, useMouseTouchSwipe }

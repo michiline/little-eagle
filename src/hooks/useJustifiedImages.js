@@ -35,6 +35,9 @@ const useImages = function ({ length }) {
     }, [{
       ratio: firstImage.ratio, images: [firstImage]
     }])
+    if (rowsRatio[rowsRatio.length - 1].images.length === 1) {
+      rowsRatio.pop()
+    }
     const rowsWidth = rowsRatio.map((currentRow) => {
       currentRow.images = currentRow.images.map(curr => {
         curr.width = currentRow.height * curr.ratio - 2
@@ -56,7 +59,8 @@ const useImages = function ({ length }) {
     let newImages = [...images]
     newImages[index] = {
       ratio,
-      src
+      src,
+      index
     }
     setImages(newImages)
     setLeftoverImages(leftoverImages - 1)

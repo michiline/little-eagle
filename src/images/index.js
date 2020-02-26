@@ -23,6 +23,11 @@ export const FacebookImg = `${imgUrl}/misc/facebook.svg`
 export const InstagramImgLarge = `${imgUrl}/misc/instagram-large.png`
 export const FacebookImgLarge = `${imgUrl}/misc/facebook-large.png`
 
+export const arrow = {
+  previous: `${imgUrl}/misc/previous.svg`,
+  next: `${imgUrl}/misc/next.svg`
+}
+
 
 const imagePaths = ({ dir, subdir, length }) => [...Array(length)].map((img, index) => `${imgUrl}/${dir}/${subdir}/img${index}.jpg`)
 
@@ -32,5 +37,3 @@ export const galleryImages = {
   'chill-vibez-battles': imagePaths({ dir: 'gallery', subdir: 'projects/chill-vibez-battles', length: 101 }),
   'supeus-case-study': imagePaths({ dir: 'gallery', subdir: 'projects/supeus-case-study', length: 26 }),
 }
-
-export const homeImages = () => imagePaths({ dir: 'gallery', subdir: 'home', length: 60 })
