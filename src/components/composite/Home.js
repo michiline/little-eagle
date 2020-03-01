@@ -40,7 +40,7 @@ const IconContainer = styled.div`
 `
 
 const Header = styled.p`
-  font-size: 24px;
+  font-size: 36px;
   letter-spacing: 0;
   line-height: 1.6;
   padding: ${theme.spacing(1)};
@@ -49,6 +49,7 @@ const Header = styled.p`
   color: white;
   z-index: 1;
   user-select: none;
+  text-align: center;
 `
 
 export default Component
