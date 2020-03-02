@@ -90,7 +90,6 @@ const Header2 = styled.p`
   font-size: 32px;
   letter-spacing: 0;
   line-height: 1.6;
-  padding: ${theme.spacing(1)};
   font-family: 'Satisfy';
   font-weight: 400;
   color: ${props => props.color};
