@@ -28,6 +28,7 @@ const Root = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100%;
 `
 
 const Header = styled(H1)`
@@ -37,29 +38,41 @@ const Header = styled(H1)`
 
 const Grid = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  @media only screen and (min-width: 1300px) {
+    flex-direction: row;
+  }
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  height: min-content;
-  flex-wrap: wrap;
 `
 
 const ImgContainer = styled.div`
-  width: 300px;
-  height: 300px;
+  min-width: 300px;
+  min-height: 300px;
+  max-width: 400px;
+  max-height: 400px;
+  width: 50vw;
+  height: 50vw;
   position: relative;
-  border: ${theme.shadow.dp1};
   cursor: pointer;
   &:hover {
     opacity: 0.9;
   }
+  margin: ${theme.spacing(1)};
   ${props => props.first && css`
-    margin-top: 2px;
+    margin-top: ${theme.spacing(2)};
   `}
   ${props => props.last && css`
-    margin-bottom: 2px;
+    margin-bottom: ${theme.spacing(2)};
   `}
+  @media only screen and (min-width: 1300px) {
+    width: 400px;
+    height: 400px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
 `
 
 // const ImgContainer = styled.div`
@@ -108,7 +121,6 @@ const OverlayRow = styled.p`
   font-size: 2rem;
   letter-spacing: 0;
   line-height: 1.6;
-  padding: ${theme.spacing(1)};
   font-family: 'Satisfy';
   font-weight: 400;
   color: white;
