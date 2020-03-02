@@ -28,7 +28,7 @@ const Component = () => {
           With my style still evolving, I am open to different ideas and projects.
         </Text>
         <Text last={true}>
-          If you have an idea, wish or vision, feel free to contact me.
+          If you have an idea, wish or vision, feel free to <Link href={'mailto:little.eagle.photo@pm.me'}>contact me</Link>.
         </Text>
         <Header2>Some random facts about me:</Header2>
         <Text bold={true} spacingTop={2} spacingBottom={2}></Text>
@@ -39,7 +39,7 @@ const Component = () => {
           <ListItem>And watermelon.</ListItem>
           <ListItem>I’m an introvert. Talking about me is hard, so imagine how much time it takes for me to write this.</ListItem>
           <ListItem>I don’t think anyone likes summer and sea more than me. </ListItem>
-          <ListItem>My boyfriend and I have our travel blog. Check it out: <Link href={'http://www.leagleandmich.com'}> Leagle & Mich</Link></ListItem>
+          <ListItem>My boyfriend and I have our travel blog. Check it out: <LinkHistory onClick={() => externalTo('http://www.leagleandmich.com')}> Leagle & Mich</LinkHistory></ListItem>
           <ListItem>I do yoga and have recently started including meditation in my everyday life. </ListItem>
           <ListItem>Little Eagle is my nickname because my surname in Croatian means just that!</ListItem>
         </List>
@@ -132,6 +132,14 @@ const ListItem = styled.li`
 
 const Link = styled.a`
   color: black;
+  font-weight: bold;
+`
+
+const LinkHistory = styled.p`
+  display: inline;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
 `
 
 export default Component
