@@ -12,9 +12,7 @@ const Component = ({ history, theme, toggled, setToggled }) => {
       <Root toggled={toggled}>
         <RippleComponent Component={Row} value={'Home'} onClick={() => drawerClick({ history, url: '/', setToggled })}/>
         <RippleComponent Component={Row} value={'Gallery'} onClick={() => drawerClick({ history, url: '/gallery', setToggled })}/>
-        <RippleComponent Component={Row} value={'Portfolio'} />
         <RippleComponent Component={Row} value={'About Me'} onClick={() => drawerClick({ history, url: '/about', setToggled })}/>
-        <RippleComponent Component={Row} value={'Contact'} onClick={() => drawerClick({ history, url: '/contact', setToggled })}/>
       </Root>
       <Overlay toggled={toggled} onClick={e => setToggled(false)} />
     </>
