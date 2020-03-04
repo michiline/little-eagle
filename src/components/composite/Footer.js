@@ -13,6 +13,7 @@ const Footer = ({ history }) => {
         <RippleComponent Component={IconButton} url={FacebookImg} round={true} onClick={() => externalTo('https://www.facebook.com/littleeaglephoto')}/>
         <RippleComponent Component={IconButton}  url={InstagramImg} round={true} onClick={() => externalTo('https://www.instagram.com/littleeaglephoto')}/>
       </IconContainer>
+      <Link href={'mailto:little.eagle.photo@pm.me'}>little.eagle.photo@pm.me</Link>
       <Title value={'© 2020 Little Eagle Photography'} />
     </Container>
   )
@@ -45,8 +46,22 @@ const IconContainer = styled.div`
 const Title = styled(H5)`
   padding: ${theme.spacing(0.5)};
   color: #FFFFFFD2;
+  margin-bottom: ${theme.spacing(1)};
 `
 
+const Link = styled.a`
+  color: #FFFFFFD2;
+  font-weight: bold;
+  font-family: 'Raleway';
+  font-size: 16px;
+  letter-spacing: 0.7px;
+  font-weight: 400;
+  text-decoration: none;
+  &:hover {
+    color: white;
+  }
+  margin-bottom: ${theme.spacing(0.5)};
+`
 
 
 export default Footer

@@ -36,7 +36,7 @@ const IconContainer = styled.div`
   justify-content: center;
   padding: ${theme.spacing(0.5)};
   margin-right: ${theme.spacing(1)};
-  margin-bottom: 64px;
+  margin-bottom: 128px;
 `
 
 const Header = styled.p`

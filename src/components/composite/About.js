@@ -31,7 +31,6 @@ const Component = () => {
           If you have an idea, wish or vision, feel free to <Link href={'mailto:little.eagle.photo@pm.me'}>contact me</Link>.
         </Text>
         <Header2>Some random facts about me:</Header2>
-        <Text bold={true} spacingTop={2} spacingBottom={2}></Text>
         <List>
           <ListItem>I’m a true fan of traveling. If a weekend is free, I’m on the road.</ListItem>
           <ListItem>Camping is my new found passion. The goal is to increase my days spent in nature every year. </ListItem>
@@ -111,12 +110,8 @@ const Text = styled.p`
 
 const List = styled.ul`
   padding-left: ${theme.spacing(2)};
-  ${props => props.spacingTop && css`
-    margin-top: ${theme.spacing(props.spacingTop)};
-  `}
-  ${props => props.spacingBottom && css`
-    margin-bottom: ${theme.spacing(props.spacingBottom)};
-  `}
+  margin-top: ${theme.spacing(1)};
+  margin-bottom: ${theme.spacing(1)};
   font-family: 'Raleway';
   font-size: 16px;
   letter-spacing: 0.7px;

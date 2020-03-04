@@ -28,7 +28,7 @@ const Root = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100%;
+  min-height: calc(100% - 64px - 119px);
 `
 
 const Header = styled(H1)`
@@ -71,6 +71,8 @@ const ImgContainer = styled.div`
     height: 400px;
     margin-top: 0;
     margin-bottom: 0;
+    margin-left: ${theme.spacing(5)};
+    margin-right: ${theme.spacing(5)};
   }
 
 `
