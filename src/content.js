@@ -1,17 +1,17 @@
 const content = {
   home: [
     {
-      src: `${process.env.PUBLIC_URL}/img/gallery/people/img1.jpg`,
+      src: `${process.env.PUBLIC_URL}/img/gallery/people/img23.jpg`,
       title: 'People',
       url: '/gallery/people'
     },
     {
-      src: `${process.env.PUBLIC_URL}/img/gallery/travel-landscape/img0.jpg`,
-      title: 'Travel Landscape',
-      url: '/gallery/travel-landscape'
+      src: `${process.env.PUBLIC_URL}/img/gallery/travels/img41.jpg`,
+      title: 'Travels',
+      url: '/gallery/travels'
     },
     {
-      src: `${process.env.PUBLIC_URL}/img/gallery/projects/chill-vibez-battles/img0.jpg`,
+      src: `${process.env.PUBLIC_URL}/img/gallery/projects/chill-vibez-battles/img3.jpg`,
       title: 'Projects',
       url: '/gallery/projects'
     }
