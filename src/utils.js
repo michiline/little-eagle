@@ -5,8 +5,8 @@ export const sleep = (milliseconds) => {
 }
 
 export const to = ({ history, url }) => {
-  history.push(url)
   scrollTo(0)
+  history.push(url)
 }
 
 export const externalTo = (url) => Object.assign(document.createElement('a'), { target: '_blank', href: url }).click()
