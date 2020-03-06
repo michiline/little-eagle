@@ -28,6 +28,7 @@ const Root = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 64px;
 `
 
 const IconContainer = styled.div`
@@ -36,7 +37,7 @@ const IconContainer = styled.div`
   justify-content: center;
   padding: ${theme.spacing(0.5)};
   margin-right: ${theme.spacing(1)};
-  margin-bottom: 128px;
+  margin-bottom: 64px;
 `
 
 const Header = styled.p`

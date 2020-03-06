@@ -6,7 +6,11 @@ export const sleep = (milliseconds) => {
 
 export const to = ({ history, url }) => {
   history.push(url)
-  // window.scrollTo({ top: 0, behavior: 'smooth' })
+  scrollTo(0)
 }
 
 export const externalTo = (url) => Object.assign(document.createElement('a'), { target: '_blank', href: url }).click()
+
+export const scrollToElem = (ref) => ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+export const scrollTo = (top) => window.scrollTo({ top: top, behavior: 'smooth' })

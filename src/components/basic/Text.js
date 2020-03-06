@@ -52,13 +52,14 @@ const SH1 = styled(SText)`
   color: '#1d1d1b';
   font-family: 'Lobster';
   font-size: 30px;
-
+  cursor: pointer;
 `
 
 const SH2 = styled(SText)`
   color: '#52514e';
   font-family: 'Satisfy';
   font-size: 23px;
+  cursor: pointer;
 `
 
 const SH3 = styled(SText)`

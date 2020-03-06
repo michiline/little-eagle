@@ -1,26 +1,31 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import { IconButton, Icon, Logo, H1, H2 } from '../basic'
 import { MenuImg, LogoImg, LandscapeImg } from '../../images'
-import { RippleComponent, useWindowWidth, useScrolledDirection } from '../../hooks'
+import { RippleComponent, useWindowWidth, useFloatingNav } from '../../hooks'
 import theme from '../../theme'
+import { scrollTo, to } from '../../utils'
 
 const Component = ({ toggled, setToggled }) => {
   const [width] = useWindowWidth()
-  const [scrollY, scrolled] = useScrolledDirection({ boundary: 0 })
+  const [show] = useFloatingNav()
+  const history = useHistory()
   return (
-    <Root scrolled={scrolled} toggled={toggled}>
+    <Root show={show}>
       <RippleComponent Component={IconButton} onClick={() => setToggled(!toggled)} url={MenuImg}round={true}/>
       <HRoot>
-        <H1 value={'LittleEagle'} {...styling.h1}/>
-        <H2 value={width > 380 ? 'Photography' : 'Photo'} {...styling.h2}/>
+        <H1 value={'LittleEagle'} {...styling.h1} onClick={() => scrollTo(0)}/>
+        <H2 value={width > 380 ? 'Photography' : 'Photo'} {...styling.h2} onClick={() => scrollTo(0)}/>
       </HRoot>
-      <Logo {...styling.logo}/>
+      <Logo {...styling.logo} onClick={() => to({ history, url: '/'})}/>
     </Root>
   )
 }
 
 const Root = styled.div`
+  position: fixed;
+  top: 0;
   display: flex;
   padding: ${theme.spacing(1)};
   z-index: 2;
@@ -37,13 +42,10 @@ const Root = styled.div`
   min-width: 100%;
   background-color: #FFFFFF;
   transition: all .2s cubic-bezier(.4,0,.2,.1);
-  top: 0;
-  ${props => props.scrolled && css`
+  ${props => !props.show && css`
     top: -64px;
   `}
-  ${props => props.toggled && css`
-    background-color: #FFFFFF;
-  `}
+
 `
 
 const HRoot = styled.div`

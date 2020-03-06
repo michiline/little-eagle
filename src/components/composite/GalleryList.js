@@ -28,7 +28,8 @@ const Root = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: calc(100% - 64px - 119px);
+  min-height: calc(100% - 119px);
+  margin-top: 64px;
 `
 
 const Header = styled(H1)`
