@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import { H1 } from '../basic'
 import theme from '../../theme'
+import { to } from '../../utils'
 
 const Component = ({ content }) => {
   const history = useHistory()
@@ -147,11 +148,5 @@ const OverlayCentered = styled.div`
     transform: translateY(2px);
   }
 `
-
-const to = ({ history, url }) => {
-  history.push(url)
-}
-
-// <JustifiedGallery imgUrls={homeImages()}/>
 
 export default Component
