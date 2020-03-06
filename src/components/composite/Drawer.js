@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { RippleComponent } from '../../hooks'
 import { H3 } from '../basic'
 import theme from '../../theme'
-import { to } from '../../utils'
+import { to, externalTo } from '../../utils'
 
 const Component = ({ history, theme, toggled, setToggled }) => {
   return (
@@ -12,6 +12,7 @@ const Component = ({ history, theme, toggled, setToggled }) => {
       <Root toggled={toggled}>
         <RippleComponent Component={Row} value={'Home'} onClick={() => drawerClick({ history, url: '/', setToggled })}/>
         <RippleComponent Component={Row} value={'Gallery'} onClick={() => drawerClick({ history, url: '/gallery', setToggled })}/>
+        <RippleComponent Component={Row} value={'Travel Blog'} onClick={() => drawerClick({ history, url: 'https://leagleandmich.com', setToggled })}/>
         <RippleComponent Component={Row} value={'About Me'} onClick={() => drawerClick({ history, url: '/about', setToggled })}/>
       </Root>
       <Overlay toggled={toggled} onClick={e => setToggled(false)} />
@@ -66,8 +67,15 @@ const SRow = styled.div`
 
 const drawerClick = ({ setToggled, history, url }) => {
   setToggled(false)
-  to({ history, url })
+  if (url.startsWith('http')) {
+    externalTo(url)
+  } else {
+    to({ history, url })
+  }
+
 }
+
+
 export default withRouter(Component)
 
 // @media only screen and (min-width: 600px) {
