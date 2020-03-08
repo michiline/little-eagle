@@ -35,8 +35,8 @@ const Root = styled.div`
   `}
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+  justify-content: flex-start;
 `
 
 const Overlay = styled.div`
@@ -53,16 +53,21 @@ const Overlay = styled.div`
 
 const Row = ({ url, value, active }) => (
   <SRow active={active}>
-    <H3 value={value} />
+    <SH3 value={value} />
   </SRow>
 )
 
 const SRow = styled.div`
+  height: 70px;
   width: 250px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   padding: ${props=> props.theme.spacing(1)};
+`
+
+const SH3 = styled(H3)`
+  font-weight: 500;
 `
 
 const drawerClick = ({ setToggled, history, url }) => {
