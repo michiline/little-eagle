@@ -58,16 +58,17 @@ const Row = ({ url, value, active }) => (
 )
 
 const SRow = styled.div`
-  height: 70px;
+  height: 50px;
   width: 250px;
   cursor: pointer;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding: ${props=> props.theme.spacing(1)};
 `
 
 const SH3 = styled(H3)`
   font-weight: 500;
+  padding-left: ${theme.spacing(2)};
 `
 
 const drawerClick = ({ setToggled, history, url }) => {
