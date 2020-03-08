@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
+import { useHistory } from 'react-router-dom'
 
-const useMouseListeners = function ({ activeImgId, length}) {
+const useMouseTouchSwipe = function ({ activeImgId, length, setFullscreen }) {
+  const history = useHistory()
   const [w, setW] = useState(window.innerWidth)
   const locked = useRef(false)
   const i = useRef(activeImgId)
@@ -115,6 +117,7 @@ const useMouseListeners = function ({ activeImgId, length}) {
     window.addEventListener('mouseup', move)
     window.addEventListener('touchend', move)
     window.addEventListener('resize', resize)
+    setFullscreen(true)
     return () => {
       window.removeEventListener('mousedown', lock)
       window.removeEventListener('mousemove', drag)
@@ -123,9 +126,10 @@ const useMouseListeners = function ({ activeImgId, length}) {
       window.removeEventListener('touchmove', drag)
       window.removeEventListener('touchend', move)
       window.removeEventListener('resize', resize)
+      setFullscreen(false)
     }
   })
   return [previous, next]
 }
 
-export default useMouseListeners
+export default useMouseTouchSwipe

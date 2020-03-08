@@ -3,9 +3,9 @@ import styled, { css } from 'styled-components'
 import { useSwipeImages, useMouseTouchSwipe } from '../../hooks'
 import { arrow, X } from '../../images'
 
-const Component = ({ imgUrls, setActiveImgId, activeImgId }) => {
+const Component = ({ imgUrls, setActiveImgId, activeImgId, setFullscreen }) => {
   const [setImage, images, sizes] = useSwipeImages({ length: imgUrls.length })
-  const [previous, next] = useMouseTouchSwipe({ activeImgId, length: imgUrls.length })
+  const [previous, next] = useMouseTouchSwipe({ activeImgId, length: imgUrls.length, setFullscreen })
   return (
     <>
     {setImages({ imgUrls, setImage })}

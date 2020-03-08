@@ -4,19 +4,20 @@ import { Header, Drawer, Gallery, Home, About, Footer } from './composite'
 import { GlobalStyle } from '../style'
 
 export const App = () => {
-  const [toggled, setToggled] = useState(false)
   const history = useHistory()
-  const [hidden, setHidden] = useState(history.location.pathname === '/')
+  const [toggled, setToggled] = useState(false)
+  const [home, setHome] = useState(history.location.pathname === '/')
+  const [fullscreen, setFullscreen] = useState(false)
   useEffect(() => {
-    history.listen(({ pathname }) => setHidden(pathname === '/'), [])
+    history.listen(({ pathname }) => setHome(pathname === '/'), [])
   })
   return (
     <>
-      <GlobalStyle toggled={toggled} hidden={hidden} />
+      <GlobalStyle toggled={toggled} home={home} fullscreen={fullscreen} />
       <Header toggled={toggled} setToggled={setToggled}/>
       <Drawer toggled={toggled} setToggled={setToggled}/>
       <Route exact path='/' component={Home} />
-      <Route path='/gallery' component={Gallery} />
+      <Route path='/gallery' render={(props) => <Gallery {...props} setFullscreen={setFullscreen} />} />
       <Route path='/about' component={About} />
       {history.location.pathname !== '/' && <Footer />}
     </>
