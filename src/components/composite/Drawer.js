@@ -21,12 +21,12 @@ const Component = ({ history, theme, toggled, setToggled }) => {
 }
 
 const Root = styled.div`
-  width: 250px;
+  width: 200px;
   height: calc(100vh - 64px);
   position: fixed;
   z-index: 3;
   top: 64px;
-  left: -250px;
+  left: -200px;
   background: #FFFFFF;
   transition: left ease-in-out 0.3s;
   ${props => props.toggled &&`
@@ -46,7 +46,7 @@ const Overlay = styled.div`
   top: 64px;
   left: 0;
   transition: opacity 0.3s;
-  background: #000000A0;
+  background: #000000B4;
   opacity: ${props => props.toggled ? 1 : 0 };
   z-index: ${props => props.toggled ? 2 : -1 };
 `
