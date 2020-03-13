@@ -50,7 +50,7 @@ const LinkContainer = styled.div`
 const Link = styled.p`
   color: white;
   font-family: 'Raleway';
-  font-size: 30px;
+  font-size: 24px;
   cursor: pointer;
   opacity: 0.7;
   transition: opacity 0.2s ease-in-out;
@@ -59,6 +59,9 @@ const Link = styled.p`
   }
   &:active {
     transform: translateY(2px);
+  }
+  @media only screen and (min-width: 600px) {
+    font-size: 30px;
   }
 `
 
