@@ -27,8 +27,9 @@ export const X = `${imgUrl}/misc/x.svg`
 const imagePaths = ({ dir, subdir, length }) => [...Array(length)].map((img, index) => `${imgUrl}/${dir}/${subdir}/img${index}.jpg`)
 
 export const galleryImages = {
-  'people': imagePaths({ dir: 'gallery', subdir: 'people', length: 76 }),
-  'travels': imagePaths({ dir: 'gallery', subdir: 'travels', length: 50 }),
+  'details': imagePaths({ dir: 'gallery', subdir: 'details', length: 32 }),
+  'people': imagePaths({ dir: 'gallery', subdir: 'people', length: 137 }),
+  'travels': imagePaths({ dir: 'gallery', subdir: 'travels', length: 163 }),
   'chill-vibez-battles': imagePaths({ dir: 'gallery', subdir: 'projects/chill-vibez-battles', length: 101 }),
   'supeus-case-study': imagePaths({ dir: 'gallery', subdir: 'projects/supeus-case-study', length: 26 }),
 }

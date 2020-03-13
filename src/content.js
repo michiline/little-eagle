@@ -1,14 +1,19 @@
 const content = {
   home: [
     {
-      src: `${process.env.PUBLIC_URL}/img/gallery/people/img23.jpg`,
+      src: `${process.env.PUBLIC_URL}/img/gallery/people/img15.jpg`,
       title: 'People',
       url: '/gallery/people'
     },
     {
-      src: `${process.env.PUBLIC_URL}/img/gallery/travels/img41.jpg`,
+      src: `${process.env.PUBLIC_URL}/img/gallery/travels/img11.jpg`,
       title: 'Travels',
       url: '/gallery/travels'
+    },
+    {
+      src: `${process.env.PUBLIC_URL}/img/gallery/details/img12.jpg`,
+      title: 'Details',
+      url: '/gallery/details'
     },
     {
       src: `${process.env.PUBLIC_URL}/img/gallery/projects/chill-vibez-battles/img3.jpg`,

@@ -39,45 +39,61 @@ const Header = styled(H1)`
 `
 
 const Grid = styled.div`
-  display: flex;
-  flex-direction: column;
-  @media only screen and (min-width: 1300px) {
-    flex-direction: row;
+  margin-top: ${theme.spacing(2)};
+  margin-bottom: ${theme.spacing(2)};
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  grid-gap: ${theme.spacing(2)};
+  @media only screen and (min-width: 950px) {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  @media only screen and (min-width: 1700px) {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 `
 
 const ImgContainer = styled.div`
   min-width: 300px;
   min-height: 300px;
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 450px;
+  max-height: 450px;
   width: 50vw;
   height: 50vw;
+  @media only screen and (min-width: 950px) {
+    width: 33vw;
+    height: 33vw;
+    min-width: 350px;
+    min-height: 350px;
+    max-width: 450px;
+    max-height: 450px;
+  }
+  @media only screen and (min-width: 1700px) {
+    width: 25vw;
+    height: 25vw;
+    min-width: 350px;
+    min-height: 350px;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
   position: relative;
   cursor: pointer;
   &:hover {
     opacity: 0.9;
   }
-  margin: ${theme.spacing(1)};
-  ${props => props.first && css`
-    margin-top: ${theme.spacing(2)};
-  `}
-  ${props => props.last && css`
-    margin-bottom: ${theme.spacing(2)};
-  `}
-  @media only screen and (min-width: 1300px) {
-    width: 400px;
-    height: 400px;
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: ${theme.spacing(5)};
-    margin-right: ${theme.spacing(5)};
-  }
-
 `
+
+// @media only screen and (min-width: 1300px) {
+//   width: 400px;
+//   height: 400px;
+//   margin-top: 0;
+//   margin-bottom: 0;
+//   margin-left: ${theme.spacing(5)};
+//   margin-right: ${theme.spacing(5)};
+// }
 
 // const ImgContainer = styled.div`
 //   width: calc(100vw - ${theme.spacing(4)});
