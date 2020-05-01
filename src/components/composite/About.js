@@ -70,18 +70,18 @@ const Img = styled.div`
   width: 100vw;
   height: 100%;
   @media only screen and (min-width: 568px) {
-    width: 66%;
-    height: 100%;
+    width: 568px;
+    height: 852px;
   }
   @media only screen and (min-width: 1200px) {
     width: 100vw;
     height: 100%;
   }
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   display: flex;
   align-items: center;
   justify-content: center;
-
+  position: relative;
 `
 
 const ContentRoot = styled.div`
@@ -200,7 +200,7 @@ const ScrollDown = styled.span`
   box-sizing: border-box;
   opacity: 1;
   z-index: 2;
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 568px) {
     display: none;
   }
 `
