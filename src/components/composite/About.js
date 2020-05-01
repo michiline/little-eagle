@@ -70,8 +70,8 @@ const Img = styled.div`
   width: 100vw;
   height: 100%;
   @media only screen and (min-width: 568px) {
-    width: 568px;
-    height: 852px;
+    width: 320px;
+    height: 480px;
   }
   @media only screen and (min-width: 1200px) {
     width: 100vw;
