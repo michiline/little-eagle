@@ -51,6 +51,7 @@ const Component = () => {
 }
 
 const Root = styled.div`
+  width: 100%;
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -68,10 +69,19 @@ const Img = styled.div`
   background-position: bottom;
   width: 100vw;
   height: 100%;
+  @media only screen and (min-width: 568px) {
+    width: 66%;
+    height: 100%;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 100vw;
+    height: 100%;
+  }
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+
 `
 
 const ContentRoot = styled.div`
