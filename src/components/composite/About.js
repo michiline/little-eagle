@@ -10,10 +10,12 @@ import { externalTo } from '../../utils'
 const Component = () => {
   return (
     <Root>
-      <Img src={AboutImg}>
-        <Header>About Me</Header>
-        <ScrollDown />
-      </Img>
+      <ImgWrapper>
+        <Img src={AboutImg}>
+          <Header>About Me</Header>
+          <ScrollDown />
+        </Img>
+      </ImgWrapper>
       <ContentRoot>
         <ContentCenter>
           <Header2>Hi, I'm Ana!</Header2>
@@ -52,14 +54,27 @@ const Component = () => {
 
 const Root = styled.div`
   width: 100%;
-  min-height: 100%;
+  min-height: calc(100% - 64px);
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 64px;
   @media only screen and (min-width: 1200px) {
-    height: 100%;
     flex-direction: row;
+  }
+`
+
+const ImgWrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  @media only screen and (min-width: 1200px) {
+    height: 100%;
+    padding: 48px;
   }
 `
 
@@ -67,27 +82,22 @@ const Img = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url(${AboutImg});
   background-size: cover;
   background-position: bottom;
-  width: 100vw;
+  width: 100%;
   height: 100%;
-  @media only screen and (min-width: 568px) {
-    width: 400px;
-    height: 600px;
-  }
-  @media only screen and (min-width: 1200px) {
-    width: 100vw;
-    height: 100%;
-  }
-  min-height: calc(100vh - 64px);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  @media only screen and (min-width: 1200px) {
+    width: 535px;
+    height: 802px;
+  }
 `
 
 const ContentRoot = styled.div`
-  height: 100%;
   width: 100%;
-  max-width: 75%;
+  height: 100%;
+  padding: 48px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -99,10 +109,8 @@ const ContentCenter = styled.div`
   flex-direction: column;
   align-items: flex-start;
   max-width: 400px;
-  margin: 48px 0 32px 0;
-  height: 100%;
+  height: min-content;
   @media only screen and (min-width: 1200px) {
-    margin: calc(48px + 64px) 0 32px 0;
     max-width: 460px !important;
   }
 `

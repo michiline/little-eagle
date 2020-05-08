@@ -3,10 +3,10 @@ import _ from 'lodash'
 
 const useFloatingNav = function () {
   const [y, setY] = useState(window.scrollY)
-  const [show, setShow] = useState(window.scrollY === 0)
+  const [show, setShow] = useState(window.scrollY <= 64)
   useEffect(() => {
     const scrollListener = (e) => {
-      if (window.scrollY < y && !show || window.scrollY === 0) {
+      if (window.scrollY < y && !show || window.scrollY <= 64) {
         setShow(true)
       } else if (window.scrollY > y && show) {
         setShow(false)
