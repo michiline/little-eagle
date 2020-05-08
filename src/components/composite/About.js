@@ -65,14 +65,15 @@ const Root = styled.div`
 `
 
 const ImgWrapper = styled.div`
-  width: 100%;
-  height: 100vh;
+  width: calc(66vh - 32px);
+  height: calc(100vh - 64px);
   padding: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   @media only screen and (min-width: 1200px) {
+    width: 100%;
     height: 100%;
     padding: 48px;
   }
@@ -208,7 +209,7 @@ const ScrollDown = styled.span`
   box-sizing: border-box;
   opacity: 1;
   z-index: 2;
-  @media only screen and (min-width: 568px) {
+  @media only screen and (min-width: 1200px) {
     display: none;
   }
 `
